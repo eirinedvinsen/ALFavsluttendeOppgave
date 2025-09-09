@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0; 
+}
+
 /*Stone &Nature*/
 :root {
   /*Base Stone&Nature*/
@@ -26,8 +31,8 @@
 /*Mountain Landscape*/
 body.mountain{
   /*Base*/
-  --primaryGranite: rgb(245,245,245);
-  --secondNightRock: rgb(35,35,40);
+  --primaryColorOne: rgb(245,245,245);
+  --secondColorTwo: rgb(35,35,40);
   /*Accents*/
   --accentPine: rgb(44,120,74);
   --accentSunset: rgb(255,140,50);
@@ -37,12 +42,19 @@ body.mountain{
 
 @media (prefers-color-scheme: dark) {
   body.mountain {
-    --primaryColor: rgb(35, 35, 40);
-    --secondaryColor: rgb(245, 245, 245);
+    --primaryColorOne: rgb(35, 35, 40);
+    --secondaryColorTwo: rgb(245, 245, 245);
 
     --accentPine: rgb(44, 120, 74);
     --accentSnow: rgb(220, 220, 220);
     --accentSunset: rgb(255, 140, 50);
     --accentSky: rgb(130, 170, 255);
   }
+}
+
+
+
+body {
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
 }
