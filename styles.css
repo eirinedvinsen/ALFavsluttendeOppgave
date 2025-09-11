@@ -87,6 +87,19 @@ ul li a {
   text-decoration: none;
 }
 
+a:link{
+  color: var(--secondaryColor);
+}
+
+a:visited{
+  color: var(--accentRope);
+}
+
+button{
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
+}
+
 .pTag{
   display: flex;
   justify-content: center;
