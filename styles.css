@@ -98,6 +98,7 @@ a:visited{
 button{
   background-color: var(--primaryColor);
   color: var(--secondaryColor);
+  border-radius: 5px;
 }
 
 .pTag{
