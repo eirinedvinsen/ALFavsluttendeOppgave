@@ -15,6 +15,10 @@
   --highlightSky: rgb(70,130,180);
 }
 
+:root{
+  --fontStyle: "Atkinson Hyperlegible Mono", sans-serif;
+}
+
 @media (prefers-color-scheme: dark){
   :root {
     --primaryColor: rgb(30, 30, 30);
@@ -57,6 +61,7 @@ body.mountain{
 body {
   background-color: var(--primaryColor);
   color: var(--secondaryColor);
+  font-family: var(--fontStyle);
 }
 
 .header{
