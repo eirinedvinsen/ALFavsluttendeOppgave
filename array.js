@@ -1,7 +1,8 @@
+// dette er flyttet til script, frem til filen blir for stor, hva er for stort, nobody knows
 const routes = [
     {
         id: 1,
-        name: "Sanne løgner"
+        name: "Sanne løgner",
         location: "Helleneset klatrefelt, Bergen",
         grade: "7+",
         type: "sport",
@@ -16,21 +17,21 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
-        id: 3
+        id: 3,
         name: "Åpent prosjekt",
         status: "unavailable",
-    }
+    },
     {
         id: 4,
         name: "Babewatch",
         locaction: "Helleneset klatrefelt, Bergen",
         grade: "8/8+",
         type: "sport",
-        status: "not climbed"
+        status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 5,
         name: "Babywatch",
@@ -39,7 +40,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 6,
         name: "En famlende finger",
@@ -48,7 +49,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 7,
         name: "Evangelisk aksjon",
@@ -57,7 +58,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 8,
         name: "Faustino",
@@ -66,7 +67,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 9,
         name: "Tjuvstart",
@@ -75,7 +76,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 10,
         name: "Solodiederet",
@@ -84,7 +85,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 11,
         name: "Nødskrik",
@@ -93,7 +94,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 12,
         name: "á la Buoux",
@@ -102,7 +103,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 13,
         name: "Patricks favoritt",
@@ -111,7 +112,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 14,
         name: "På skråplanet igjen",
@@ -120,7 +121,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 15,
         name: "Fortidens helter",
@@ -129,7 +130,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 16,
         name: "Straffen for luksus",
@@ -138,7 +139,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 17,
         name: "Rock versus opera",
@@ -147,7 +148,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 18,
         name: "Glemte minner",
@@ -156,7 +157,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 19,
         name: "Test-lab.",
@@ -165,7 +166,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 20,
         name: "á la carte",
@@ -174,7 +175,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 21,
         name: "Billy the kid",
@@ -183,7 +184,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 22,
         name: "S-risset",
@@ -192,7 +193,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 23,
         name: "Tannlegeskrekk",
@@ -201,7 +202,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 24,
         name: "Leppa",
@@ -210,7 +211,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 25,
         name: "Krysset",
@@ -219,7 +220,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 26,
         name: "Bånnaren",
@@ -228,7 +229,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 27,
         name: "Chun",
@@ -237,7 +238,7 @@ const routes = [
         type: "sport",
         status: "not climbed",
         rating: null
-    }
+    },
     {
         id: 28,
         name: "Navigator",
