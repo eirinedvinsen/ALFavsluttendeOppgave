@@ -259,7 +259,7 @@ for(let i=0; i < routes.length; i++){
     climbingRoutes += `<div class="table"> ${routes[i].name} </div>`;
 };
 
-// safer option example let minDiv = document.createElement('div');
+// må repeteres, safer option example let minDiv = document.createElement('div');
 // minDiv.classList.add("red");
 // minDiv.setAttribute("id", "hallo");
 
