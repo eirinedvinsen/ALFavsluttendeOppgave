@@ -123,3 +123,13 @@ iframe{
   height: 600px;
   border: none; 
 }
+
+.route {
+  padding: 8px;
+  border-bottom: 1px solid var(--accentChalk);
+}
+
+.route input[type="checkbox"]:checked +strong {
+  text-decoration: line-through;
+  color: var(--accentMoss);
+}

@@ -259,8 +259,38 @@ for(let i=0; i < routes.length; i++){
     climbingRoutes += `<div class="table"> ${routes[i].name} </div>`;
 };
 
+
 // må repeteres, safer option example let minDiv = document.createElement('div');
 // minDiv.classList.add("red");
 // minDiv.setAttribute("id", "hallo");
 
 document.getElementById("climbingRoutes").innerHTML = climbingRoutes;
+
+function renderRoutes(){
+    const container = document.getElementById("climbingRoutes");
+    container.innerHTML = "";
+    routes.forEach(route=>{
+        const isChecked = climbingRoutes.includes(route.id);
+        const routeDiv = document.createElement("div");
+        routeDiv.classList.add("route");
+        routeDiv.innerHTML = `<label> <input type="checkbox" ${isChecked ? "checked" : ""} data-id="${route.id}">
+        <strong>${route.name}</strong> - ${route.grade} (${route.location})
+        </label>`;
+        container.appendChild(routeDiv);
+    });
+
+    document.querySelectorAll('input[type="checkbox"]').forEach(box=>{
+        box.addEventListener("change", e => {
+            const id = parseInt(e.target.getAttribute("data-id"));
+            
+            if(e.target.checked){
+                climbedRoutes.push(id);
+            } else{
+                climbedRoutes = climbedRoutes.filter(routeID => routeId !== id);
+            }
+            localStorage.setItem("climbedRoutes", JSON.stringify(climbedRoutes));
+        });
+    });
+};
+
+renderRoutes();
