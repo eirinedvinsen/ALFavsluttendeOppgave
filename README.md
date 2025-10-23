@@ -11,6 +11,8 @@ Todo:
 4.hardkode noen kommentarer. 
 5.koble landingssiden til ruteoversikten. 
 
+lage identiske html filer for hver rute? 
+
 json server, json fil, lastes som en server, sende/utvide db
 hente array fra fil, json fil (foreløpig array)
 sette opp db, autenticator, admin access, til slutt. 
