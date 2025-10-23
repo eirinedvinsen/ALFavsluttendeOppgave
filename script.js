@@ -2,6 +2,7 @@ console.log('Hello!');
 
 // legge til en lagreknapp, må ha user input som kommentar til hva de kan lagre. 
 // legge til en toggle, dark/lightmode
+// let climbedRoutes = JSON.parse(localStorage.getItem("climbedRoutes")) || [];
 const routes = [
     {
         id: 1,
@@ -274,8 +275,7 @@ function renderRoutes(){
         const routeDiv = document.createElement("div");
         routeDiv.classList.add("route");
         routeDiv.innerHTML = `<label> <input type="checkbox" ${isChecked ? "checked" : ""} data-id="${route.id}">
-        <strong>${route.name}</strong> - ${route.grade} (${route.location})
-        </label>`;
+        <strong>${route.name}</strong> - ${route.grade} (${route.location}) <label>Kommentar: <input type="text" class="commentBox"></label><br><label>Rating <input type="number" min="1" max="5" class="ratingBox"></label>`;
         container.appendChild(routeDiv);
     });
 
@@ -291,6 +291,35 @@ function renderRoutes(){
             localStorage.setItem("climbedRoutes", JSON.stringify(climbedRoutes));
         });
     });
+
+    // document.querySelectorAll('.commentBox').forEach(input => {
+    //     input.addEventListener("input", e => {
+    //         const id = parseInt(e.target.getAttribute("data-id"));
+    //         let route = climbedRoutes.find(r => r.id === id);
+    //         if(!route){
+    //             route = {id: id};
+    //             climbedRoutes.push(route);
+    //         }
+    //         route.comment = e.target.value;
+    //         saveData();
+    //     });
+    // });
+
+    // document.querySelectorAll('.ratingBox').forEach(input => {
+    //     input.addEventListener("input", e => {
+    //         const id = parseInt(e.target.getAttribute("data-id"));
+    //         let route = climbedRoutes.find(r => r.id === id);
+    //         if(!route){
+    //             route = {id: id};
+    //             climbedRoutes.push(route);
+    //         }
+    //         route.rating = parseInt(e.target.value);
+    //         saveData();
+    //     });
+    // });
+    // function saveData(){
+    //     localStorage.setItem("climbedRoutes", JSON.stringify(climbedRoutes));
+    // }
 };
 
 renderRoutes();
