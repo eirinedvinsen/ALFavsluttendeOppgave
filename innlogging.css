@@ -1,0 +1,97 @@
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primaryColor);
+    font-family: var(--fontStyle);
+}
+
+
+/* Selve boksen */
+.logInStyle{
+    background-color: var(--primaryColor);
+    color: var(--secondaryColor);
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0, 0.15);
+    width: 320px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3 ease; 
+}
+
+.logInStyle:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 25px rgba(0,0,0, 0.2);
+}
+
+
+/* Labels og input-felt */
+loginStyle label{
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+.logInStyle input[type="text"], .logInStyle input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--accentChalk);
+    border-radius: 6px;
+    background-color: var(--primaryColor);
+    color: var(--secondaryColor);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logInStyle input[type="text"]:focus,
+.logInStyle input[type="password"]:focus {
+  outline: none;
+  border-color: var(--highlightSky);
+  box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.2);
+}
+
+/* Logg inn-knapp */
+.submit {
+  margin-top: 1.5rem;
+  display: flex;
+ justify-content: space-between;
+ align-items: center;
+  gap: 1rem;
+}
+
+.submit input[type="button"] {
+  flex: 1;
+  padding: 10px 0;
+  background-color: var(--highlightSky);
+  color: var(--accentChalk);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit input[type="button"]:hover {
+  background-color: var(--accentMoss);
+  transform: scale(1.02);
+}
+
+/* Glemt passord-lenke */
+.submit a {
+ flex-shrink: 0;
+  font-size: 0.9rem;
+  color: var(--highlightSky);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-left: 0.5rem;
+}
+
+.submit a:hover {
+  color: var(--accentRope);
+}
+
+
