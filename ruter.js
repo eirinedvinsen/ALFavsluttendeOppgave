@@ -6,7 +6,7 @@ const routes = [
         location: "Helleneset klatrefelt, Bergen",
         grade: "7+",
         type: "sport",
-        info: "Toppfeste: 2 limbolter, 3 bolter, 10m",
+        info: "Toppfeste: 2 limbolter, Antall bolter: 3 bolter, høyde: 10m",
         status: "not climbed",
         rating: null
     },
@@ -16,6 +16,7 @@ const routes = [
         location: "Helleneset klatrefelt, Bergen",
         grade: "7",
         type: "sport",
+        info: "Toppfest: 2 ringer/limbolter, Antall bolter: 4 bolter, høyde: 12m",
         status: "not climbed",
         rating: null
     },
@@ -30,6 +31,7 @@ const routes = [
         locaction: "Helleneset klatrefelt, Bergen",
         grade: "8/8+",
         type: "sport",
+        info: "Toppfeste: 2 ringer/limbolter, Antall bolter: 4 bolter, høyde: 15m",
         status: "not climbed",
         rating: null
     },
