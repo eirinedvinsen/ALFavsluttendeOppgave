@@ -15,15 +15,26 @@
     </nav>
   </header>
   <main>
-    <section>
+    <section id="listView">
       <h2>Ruteoversikt</h2>
       <div id="climbingRoutes"></div>
     </section>
     
     <section id="detailView">
-      <h2></h2>
-      <p></p>
-      <p></p>
+      <button id="backBtn">Tilbake</button>
+      <h2 id="routeName"></h2>
+      <p id="routeGrade"></p>
+      <p id="routeInfo"></p>
+
+      <label for="">
+        Kommentar:
+        <input type="text" id="comments">
+      </label>
+      <br>
+      <label for="">
+        Rating:
+        <input type="number" min="1" max="5" id="rating">
+      </label>
     </section><!-- Tanken er at denne siden er en fullstendig database over klatrefelt, mulig at checklisten blir lagret her og hentet som en iframe til fremsiden, evnt nyttig informasjon? -->
     <!-- div med tabell display none-->
     <!-- div med detaljside med hidden -->

@@ -6,6 +6,7 @@ const routes = [
         location: "Helleneset klatrefelt, Bergen",
         grade: "7+",
         type: "sport",
+        info: "Toppfeste: 2 limbolter, 3 bolter, 10m",
         status: "not climbed",
         rating: null
     },
@@ -248,4 +249,48 @@ const routes = [
         status: "not climbed",
         rating: null
     }
-]
+];
+
+console.log(routes.length);
+
+let climbedRoutes = JSON.parse(localStorage.getItem("climbedRoutes")) || [];
+
+let listView = document.getElementById("listView");
+let detailView = document.getElementById("detailView");
+let climbingRoutesDiv = document.getElementById("climbedRoutes");
+
+const routeName = document.getElementById("routeName");
+const routeGrade = document.getElementById("routeGrade");
+const routeInfo = document.getElementById("routeInfo");
+const comments = document.getElementById("comments");
+const rating = document.getElementById("rating");
+const backBtn = document.getElementById("backBtn");
+
+let currentRoute = null;
+
+function renderList(){
+    console.log("Tegner ut rutene");
+    climbingRoutesDiv.innerHTML = "";
+
+    routes.forEach(route =>{
+        console.log("legger til rute:" , route.name, route.grade);
+        const routeDiv = document.createElement("div");
+        routeDiv.classList.add("route");
+        routeDiv.textContent = `${route.name} (${route.grade})`;
+        routeDiv.addEventListener("click", () => showDetail(route.id));
+        climbingRoutesDiv.appendChild(routeDiv);
+        console.log("Ruter lag til i DOM", routeDiv.textContent);
+    });
+    
+    listView.style.display = "block";
+    detailView.style.display = "none";
+};
+
+function showDetail(routeId){
+    currentRoute = routes.find(r => r.id === routeId);
+    const savedData = climbedRoutes.find(r => r.id === routeID) || {};
+
+    routeName.textContent = currentRoute.name;
+    routeGrade.textContent = `Grad: ${currentRoute.grade}`;
+    routeInfo.textContent= `Ruteinfo: ${currentRoute.info}`;
+}
