@@ -323,3 +323,5 @@ function renderRoutes(){
 };
 
 renderRoutes();
+
+// display none, for å gjemme tabell, og vise detaljside if else elif, kan vise med rating, kommentar (og bilde?) hardcode detaljside først

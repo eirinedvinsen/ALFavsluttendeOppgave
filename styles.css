@@ -70,6 +70,17 @@ body {
   align-items: center;
 }
 
+.headerLogo{
+ display: flex;
+ justify-content: space-between;
+ gap: 10px;
+}
+
+.headerImg{
+  background-color: var(--accentMoss);
+  height: 50px;
+  width: auto;
+}
 /*.hidden{
   display: none;
 }*/
