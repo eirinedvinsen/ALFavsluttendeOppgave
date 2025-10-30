@@ -309,12 +309,27 @@ function renderList(){
 
     routes.forEach(route => {
         console.log("legger til rute:" , route.name, route.grade);
+        const isChecked = climbedRoutes.includes(route.id);
         const routeDiv = document.createElement("div");
         routeDiv.classList.add("route");
-        routeDiv.textContent = `${route.name} (${route.grade})`;
+        routeDiv.innerHTML = `<label><input type="checkbox" data-id="${route.id}"${isChecked? "checked" : ""}>${route.name} (${route.grade})</label>`;
         routeDiv.addEventListener("click", () => showDetail(route.id));
         climbingRoutesDiv.appendChild(routeDiv);
         console.log("Ruter lag til i DOM", routeDiv.textContent);
+    });
+
+    document.querySelectorAll('input[type="checkbox"]').forEach(box=>{
+        box.addEventListener("change", e=> {
+            const id = parseInt(e.target.getAttribute("data-id"));
+            
+            if(e.target.checked){
+                climbedRoutes.push(id);
+            }else{
+                climbedRoutes= climbedRoutes.filter(routeId => routeId !== id);
+            }
+            localStorage.setItem("climbedRoutes", JSON.stringify(climbedRoutes));
+        });
+        //fikse sånn at check'ed merket ikke tar deg til detaljvinduet, kanskje få til checking på detailview og bare speile checked?
     });
     
     listView.style.display = "block";
@@ -335,7 +350,7 @@ function showDetail(routeId){
         rating.value = `Rating: ${saved.rating}`;
     } else {
         commentsDiv.textContent = "Ingen kommentarer enda.";
-        rating.value = saved.rating || "";
+        rating.value = "";
     }
     listView.style.display = "none";
     detailView.style.display= "block";
