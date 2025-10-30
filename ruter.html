@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <script type="module" src="ruter.js"></script>
+  <script type="module" src="ruter.js" defer></script>
   <title>Document</title>
 </head>
 <body>
@@ -15,20 +15,20 @@
     </nav>
   </header>
   <main>
-    <section id="listView">
+    <section id="listView" class="listView">
       <h2>Ruteoversikt</h2>
       <div id="climbingRoutes"></div>
     </section>
     
-    <section id="detailView">
+    <section id="detailView" class="detailView">
       <button id="backBtn">Tilbake</button>
       <h2 id="routeName"></h2>
       <p id="routeGrade"></p>
       <p id="routeInfo"></p>
 
       <label for="">
-        Kommentar:
-        <input type="text" id="comments">
+        Kommentar: <br>
+        <textarea class="comments" id="comments" name="comments" rows="5" cols="30"></textarea>
       </label>
       <br>
       <label for="">

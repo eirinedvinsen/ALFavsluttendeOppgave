@@ -253,18 +253,51 @@ const routes = [
     }
 ];
 
+let savedComments = [
+    {
+        id: 1,
+        name: "Sanne løgner",
+        location: "Helleneset klatrefelt, Bergen",
+        grade: "7+",
+        user: "Name Name",
+        status: "climbed",
+        comment: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, impedit?" ,
+        rating: "3 of 5"
+    },
+    {
+        id: 2,
+        name: "Geocache",
+        location: "Helleneset klatrefelt, Bergen",
+        grade: "7",
+        user: "Name Name",
+        status: "climbed",
+        comment: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, impedit?" ,
+        rating: "4 of 5"
+    },    
+    {
+        id: 4,
+        name: "Babewatch",
+        location: "Helleneset klatrefelt, Bergen",
+        grade: "8/8+",
+        user: "Name Name",
+        status: "climbed",
+        comment: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, impedit?" ,
+        rating: "2 of 5"
+    }, 
+
+];
 console.log(routes.length);
 
 let climbedRoutes = JSON.parse(localStorage.getItem("climbedRoutes")) || [];
 
 let listView = document.getElementById("listView");
 let detailView = document.getElementById("detailView");
-let climbingRoutesDiv = document.getElementById("climbedRoutes");
+let climbingRoutesDiv = document.getElementById("climbingRoutes");
 
 const routeName = document.getElementById("routeName");
 const routeGrade = document.getElementById("routeGrade");
 const routeInfo = document.getElementById("routeInfo");
-const comments = document.getElementById("comments");
+const commentsDiv = document.getElementById("comments");
 const rating = document.getElementById("rating");
 const backBtn = document.getElementById("backBtn");
 
@@ -274,7 +307,7 @@ function renderList(){
     console.log("Tegner ut rutene");
     climbingRoutesDiv.innerHTML = "";
 
-    routes.forEach(route =>{
+    routes.forEach(route => {
         console.log("legger til rute:" , route.name, route.grade);
         const routeDiv = document.createElement("div");
         routeDiv.classList.add("route");
@@ -289,10 +322,30 @@ function renderList(){
 };
 
 function showDetail(routeId){
+    console.log("Viser detaljer for rute med id:", routeId);
     currentRoute = routes.find(r => r.id === routeId);
-    const savedData = climbedRoutes.find(r => r.id === routeID) || {};
+    const saved = savedComments.find(c => c.id === routeId);
 
     routeName.textContent = currentRoute.name;
-    routeGrade.textContent = `Grad: ${currentRoute.grade}`;
-    routeInfo.textContent= `Ruteinfo: ${currentRoute.info}`;
-}
+    routeGrade.textContent=`Grad: ${currentRoute.grade}`;
+    routeInfo.textContent = currentRoute.info || "Ingen ruteinfo tilgjengelig";
+
+    if (saved){
+        commentsDiv.textContent = `Kommentar fra ${saved.user}: "${saved.comment}"`;
+        rating.value = `Rating: ${saved.rating}`;
+    } else {
+        commentsDiv.textContent = "Ingen kommentarer enda.";
+        rating.value = saved.rating || "";
+    }
+    listView.style.display = "none";
+    detailView.style.display= "block";
+};
+
+backBtn.addEventListener("click", () => {
+    console.log ("Back to list");
+    renderList();
+});
+
+renderList();
+
+

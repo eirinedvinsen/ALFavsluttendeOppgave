@@ -3,7 +3,6 @@
   margin: 0; 
 }
 
-/*Stone &Nature*/
 :root {
   /*Base Stone&Nature*/
   --primaryColor: rgb(240, 240, 240);
@@ -13,6 +12,16 @@
   --accentChalk: rgb(245,245,245);
   --accentRope: rgb(178,34,34);
   --highlightSky: rgb(70,130,180);
+
+  /*Mountain Landscape*/
+  /*Base*/
+  --primaryColorOne: rgb(245,245,245);
+  --secondColorTwo: rgb(35,35,40);
+  /*Accents*/
+  --accentPine: rgb(44,120,74);
+  --accentSunset: rgb(255,140,50);
+  --accentSky: rgb(130,170,255);
+  --accentSnow: rgb(220,220,220);
 }
 
 :root{
@@ -80,6 +89,7 @@ body {
   background-color: var(--accentMoss);
   height: 50px;
   width: auto;
+  border-radius: 15px;
 }
 /*.hidden{
   display: none;
@@ -138,6 +148,11 @@ iframe{
 .route {
   padding: 8px;
   border-bottom: 1px solid var(--accentChalk);
+  cursor:pointer;
+}
+
+.route:hover{
+  background-color: var(--accentMoss);
 }
 
 .route input[type="checkbox"]:checked +strong {
@@ -145,5 +160,13 @@ iframe{
   color: var(--accentMoss);
 }
 
+.detailView{
+  display: none;
+}
 
+.comments{
+  background-color: var(--primaryColorTwo);
+  color: var(--accentSnow);
+  border-radius: 5px;
+}
 
