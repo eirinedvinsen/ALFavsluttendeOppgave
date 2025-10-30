@@ -303,7 +303,8 @@ const backBtn = document.getElementById("backBtn");
 
 let currentRoute = null;
 
-function renderList(){
+functio
+n renderList(){
    // console.log("Tegner ut rutene");
     climbingRoutesDiv.innerHTML = "";
 
