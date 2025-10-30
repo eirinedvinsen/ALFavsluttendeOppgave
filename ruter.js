@@ -286,7 +286,7 @@ let savedComments = [
     }, 
 
 ];
-console.log(routes.length);
+//console.log(routes.length);
 
 let climbedRoutes = JSON.parse(localStorage.getItem("climbedRoutes")) || [];
 
@@ -304,7 +304,7 @@ const backBtn = document.getElementById("backBtn");
 let currentRoute = null;
 
 function renderList(){
-    console.log("Tegner ut rutene");
+   // console.log("Tegner ut rutene");
     climbingRoutesDiv.innerHTML = "";
 
     routes.forEach(route => {
@@ -322,7 +322,7 @@ function renderList(){
 };
 
 function showDetail(routeId){
-    console.log("Viser detaljer for rute med id:", routeId);
+    //console.log("Viser detaljer for rute med id:", routeId);
     currentRoute = routes.find(r => r.id === routeId);
     const saved = savedComments.find(c => c.id === routeId);
 
@@ -342,7 +342,7 @@ function showDetail(routeId){
 };
 
 backBtn.addEventListener("click", () => {
-    console.log ("Back to list");
+   // console.log ("Back to list");
     renderList();
 });
 
