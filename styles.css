@@ -6,7 +6,7 @@
 :root {
   /*Base Stone&Nature*/
   --primaryColor: rgb(240, 240, 240);
-  --secondaryColor: rgb(30, 30, 30);
+  --secondaryColor: rgb(59, 59, 59);
   /*Accents*/
   --accentMoss: rgb(102,153,102);
   --accentChalk: rgb(245,245,245);
@@ -16,7 +16,7 @@
   /*Mountain Landscape*/
   /*Base*/
   --primaryColorOne: rgb(245,245,245);
-  --secondColorTwo: rgb(35,35,40);
+  --secondColorTwo: rgb(60, 60, 67);
   /*Accents*/
   --accentPine: rgb(44,120,74);
   --accentSunset: rgb(255,140,50);
@@ -30,7 +30,7 @@
 
 @media (prefers-color-scheme: dark){
   :root {
-    --primaryColor: rgb(30, 30, 30);
+    --primaryColor: rgb(59, 59, 59);
     --secondaryColor: rgb(240, 240, 240);
 
     --accentMoss: rgb(102, 153, 102);
@@ -45,7 +45,7 @@
 body.mountain{
   /*Base*/
   --primaryColorOne: rgb(245,245,245);
-  --secondColorTwo: rgb(35,35,40);
+  --secondColorTwo: rgb(60, 60, 67);
   /*Accents*/
   --accentPine: rgb(44,120,74);
   --accentSunset: rgb(255,140,50);
