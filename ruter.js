@@ -336,6 +336,12 @@ function renderList(){
     detailView.style.display = "none";
 };
 
+document.getElementById("search").addEventListener("input", (e)=> {
+    const query = e.target.value.toLowerCase();
+    const filtered = routes.filter(r => r.name.toLowerCase().includes(query));
+    renderList(filtered);
+});
+
 function showDetail(routeId){
     //console.log("Viser detaljer for rute med id:", routeId);
     currentRoute = routes.find(r => r.id === routeId);
