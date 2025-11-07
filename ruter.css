@@ -1,0 +1,19 @@
+/* header */
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    min-height: 32px;
+    font-size: 16px;
+}
+/* main */
+listView{
+    display: flex;
+    justify-content: center;
+}
+
+/* footer */
