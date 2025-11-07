@@ -38,6 +38,12 @@ body {
   padding: 0 1rem;
   transition: background-color 0.3s, color 0.3s;
 }
+
+body.darkMode{
+  background-color: var(--secondaryColor);
+  color: var(--primaryColor);
+  font-family: var(--fontStyle);
+}
 /* header */
 
 .header{
@@ -45,7 +51,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: var(--accentSnow);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   margin: 1rem 0; 
@@ -63,6 +68,7 @@ body {
   /* width: auto; */
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  background-color: var(--accentChalk);
 }
 /*.hidden{
   display: none;
@@ -72,6 +78,29 @@ body {
   letter-spacing: 0.5px;
 }
 
+#themeToggle{
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5em;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+#themeToggle:hover{
+  transform: rotate(20deg);
+}
+
+#themeIcon{
+  width: 32px;
+  height: 32px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.navThemeToggle{
+  display: flex;
+  justify-content: space-between;
+}
 /* nav */
 
 nav ul{
@@ -184,6 +213,7 @@ main section:hover {
 .contentGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas: "image text" "image text";
   align-items: stretch;
   gap: 2rem;
   padding: 2rem;
@@ -203,6 +233,7 @@ main section:hover {
   box-shadow: inset 0 0 50px rgba(255,255,255,0.3);
   min-height: 250px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  grid-area: image;
 }
 
 .imagePlaceholder.large {
@@ -220,6 +251,10 @@ section h1, section h2 {
   font-family: var(--fontStyle);
   color: var(--accentMoss);
   margin-bottom: 1rem;
+}
+
+h2 .pTag{
+  grid-area: text;
 }
 
 section h1 {
