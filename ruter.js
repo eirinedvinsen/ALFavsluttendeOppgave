@@ -303,35 +303,40 @@ const backBtn = document.getElementById("backBtn");
 
 let currentRoute = null;
 
-function renderList(){
-   // console.log("Tegner ut rutene");
-    climbingRoutesDiv.innerHTML = "";
+function renderList(filteredRoutes = routes){
+    climbingRoutesDiv.innerHTML ="";
 
-    routes.forEach(route => {
-        console.log("legger til rute:" , route.name, route.grade);
+    filteredRoutes.forEach(route => {
         const isChecked = climbedRoutes.includes(route.id);
         const routeDiv = document.createElement("div");
         routeDiv.classList.add("route");
-        routeDiv.innerHTML = `<label><input type="checkbox" data-id="${route.id}"${isChecked? "checked" : ""}>${route.name} (${route.grade})</label>`;
-        routeDiv.addEventListener("click", () => showDetail(route.id));
-        climbingRoutesDiv.appendChild(routeDiv);
-        console.log("Ruter lag til i DOM", routeDiv.textContent);
-    });
 
-    document.querySelectorAll('input[type="checkbox"]').forEach(box=>{
-        box.addEventListener("change", e=> {
-            const id = parseInt(e.target.getAttribute("data-id"));
-            
-            if(e.target.checked){
-                climbedRoutes.push(id);
-            }else{
-                climbedRoutes= climbedRoutes.filter(routeId => routeId !== id);
+        const label = document.createElement("label");
+        label.textContent = `${route.name} (${route.grade || "ukjent grad"})`;
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.dataset.id = route.id;
+        checkbox.checked = isChecked;
+
+        label.prepend(checkbox);
+        routeDiv.appendChild(label);
+
+        checkbox.addEventListener("click", e => {
+            e.stopPropagation();
+
+            const id= parseInt(e.target.dataset.id);
+            if (e.target.checked){
+                if(!climbedRoutes.includes(id)) climbedRoutes.push(id);
+            } else {
+                climbedRoutes = climbedRoutes.filter(rid => rid !== id);
             }
             localStorage.setItem("climbedRoutes", JSON.stringify(climbedRoutes));
         });
-        //fikse sånn at check'ed merket ikke tar deg til detaljvinduet, kanskje få til checking på detailview og bare speile checked?
+
+        routeDiv.addEventListener("click", ()=> showDetail(route.id));
+        climbingRoutesDiv.appendChild(routeDiv);
     });
-    
     listView.style.display = "block";
     detailView.style.display = "none";
 };
