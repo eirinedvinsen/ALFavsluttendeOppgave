@@ -7,14 +7,18 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="ruter.css">
   <script type="module" src="ruter.js" defer></script>
+  <script type="module" src="script.js" defer></script>
   <title>Document</title>
 </head>
 <body>
   <header>
     <img class="headerImg" src="mountains.png" alt="fjell">
-    <nav>
-      <button><a href="index.html">Hjem</a></button>
-    </nav>
+    <div class="navThemeToggle">
+      <nav>
+        <button><a href="index.html">Hjem</a></button>
+      </nav>
+      <button id="themeToggle" aria-label="change Theme"><img id="themeIcon" src="crescent-moon-png-21.png" alt="lightmode-darkmode toggle"></button>
+    </div>
   </header>
   <main>
     <section id="searchWindow" class="searchWindow">
