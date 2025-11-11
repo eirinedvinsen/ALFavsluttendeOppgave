@@ -347,6 +347,27 @@ document.getElementById("search").addEventListener("input", (e)=> {
     renderList(filtered);
 });
 
+function applyFilters(){
+    //en start på filtrering, neste er å kunne velge flere ruter for filtrering, f.eks 3-5
+    const query = document.getElementById("search").value.toLowerCase();
+    const selectedGrade = document.getElementById("gradeFilter").value;
+
+    let filtered = routes;
+
+    if(query){
+        filtered = filtered.filter(r => r.name.toLowerCase().includes(query));
+    }
+
+    if(selectedGrade){
+        filtered = filtered.filter(r => r.grade && r.grade.startsWith(selectedGrade));
+    }
+
+    renderList(filtered);
+}
+
+document.getElementById("search").addEventListener("input", applyFilters);
+document.getElementById("gradeFilter").addEventListener("change", applyFilters);
+
 function showDetail(routeId){
     //console.log("Viser detaljer for rute med id:", routeId);
     currentRoute = routes.find(r => r.id === routeId);
@@ -372,6 +393,7 @@ backBtn.addEventListener("click", () => {
     renderList();
 });
 
+//oppdatere "ingen ruter logget teksten når ruter blir logget/fjerne den"
 renderList();
 
 
