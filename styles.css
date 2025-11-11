@@ -95,6 +95,8 @@ body.darkMode{
   width: 32px;
   height: 32px;
   transition: opacity 0.3s ease-in-out;
+  background-color: var(--primaryColor);
+  border-radius: 50%;
 }
 
 .navThemeToggle{
