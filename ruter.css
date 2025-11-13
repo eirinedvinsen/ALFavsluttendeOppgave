@@ -27,5 +27,28 @@ button{
     justify-content: center;
     color: var(--secondaryColor);
 }
+/*detailView*/
+.detailView{
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: var(--accentChalk);
+    border-radius:var(--radius);
+    box-shadow: var(--shadow);
+    color: var(--secondaryColor);
+}
+
+#backBtn{
+    margin-bottom: 15px;
+}
+
+textarea.comments{
+    width: 100%;
+    padding: 10px;
+    border-radius: var(--radius);
+    border: 1px solid var(--secondaryColor);
+}
+
+
 
 /* footer */
