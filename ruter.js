@@ -332,6 +332,8 @@ function renderList(filteredRoutes = routes){
                 climbedRoutes = climbedRoutes.filter(rid => rid !== id);
             }
             localStorage.setItem("climbedRoutes", JSON.stringify(climbedRoutes));
+
+            progressCounter();
         });
 
         routeDiv.addEventListener("click", ()=> showDetail(route.id));
@@ -350,16 +352,26 @@ document.getElementById("search").addEventListener("input", (e)=> {
 function applyFilters(){
     //en start på filtrering, neste er å kunne velge flere ruter for filtrering, f.eks 3-5
     const query = document.getElementById("search").value.toLowerCase();
-    const selectedGrade = document.getElementById("gradeFilter").value;
+    const selectedGradeFrom = document.getElementById("gradeFilter").value;
+    const selectedGradeTo = document.getElementById("gradeFilterTwo").value;
+    const gradeFrom = selectedGradeFrom ? parseInt(selectedGradeFrom) : null;
+    const gradeTo = selectedGradeTo ? parseInt(selectedGradeTo) : null; 
 
     let filtered = routes;
 
     if(query){
-        filtered = filtered.filter(r => r.name.toLowerCase().includes(query));
+        filtered = filtered.filter(r=> r.name.toLowerCase().includes(query));
     }
+    
+    if(gradeFrom !== null || gradeTo !== null){
+        filtered = filtered.filter(r => {
+            const g = parseInt(r.grade);
+            if(isNaN(g)) return false;
+            if(gradeFrom!== null && g < gradeFrom)return false;
+            if (gradeTo !== null && g > gradeTo) return false;
 
-    if(selectedGrade){
-        filtered = filtered.filter(r => r.grade && r.grade.startsWith(selectedGrade));
+            return true;
+        })
     }
 
     renderList(filtered);
@@ -367,6 +379,7 @@ function applyFilters(){
 
 document.getElementById("search").addEventListener("input", applyFilters);
 document.getElementById("gradeFilter").addEventListener("change", applyFilters);
+document.getElementById("gradeFilterTwo").addEventListener("change", applyFilters)
 
 function showDetail(routeId){
     //console.log("Viser detaljer for rute med id:", routeId);
@@ -393,7 +406,18 @@ backBtn.addEventListener("click", () => {
     renderList();
 });
 
-//oppdatere "ingen ruter logget teksten når ruter blir logget/fjerne den"
+function progressCounter(){
+    const progressText = document.getElementById("progressText");
+    progressText.textContent = `${climbedRoutes.length} av ${routes.length} ruter logget.`;
+}
+
+
 renderList();
+progressCounter();
+
+//bestemme range, (slider?)
+//to nedtrekksmenyer til og fra ( godt sted å starte)
+//endre rekkefølgen fra hvor i feltet til gradstørrelse
+//design tilslutt 
 
 

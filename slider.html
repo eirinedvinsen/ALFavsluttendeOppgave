@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Double range eksempel</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+
+    .wrapper {
+      max-width: 400px;
+    }
+
+    .values {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .range-container {
+      position: relative;
+      width: 100%;
+      height: 40px;
+    }
+
+    /* Gjør sliderne like og fjern default-styling */
+    .range-container input[type="range"] {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      pointer-events: none;          /* gjør at de ikke blokkerer hverandre */
+      -webkit-appearance: none;
+      appearance: none;
+      background: none;
+    }
+
+    /* Selve “linja” */
+    .range-container input[type="range"]::-webkit-slider-runnable-track {
+      height: 6px;
+      background: #ddd;
+      border-radius: 3px;
+    }
+
+    .range-container input[type="range"]::-moz-range-track {
+      height: 6px;
+      background: #ddd;
+      border-radius: 3px;
+    }
+
+    /* Tommel (håndtak) */
+    .range-container input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      pointer-events: auto;         /* viktig: nå kan vi klikke/dragge tommelen */
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid #555;
+      background: white;
+      box-shadow: 0 0 4px rgba(0,0,0,0.3);
+      margin-top: -6px; /* justerer for track-høyden */
+    }
+
+    .range-container input[type="range"]::-moz-range-thumb {
+      pointer-events: auto;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid #555;
+      background: white;
+      box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    }
+
+    /* Highlight mellom min og max */
+    .range-highlight {
+      position: absolute;
+      height: 6px;
+      background: #a0c4ff;
+      border-radius: 3px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Double-range (1–10)</h1>
+
+    <div class="values">
+      Start: <span id="minValue">2</span> – 
+      Slutt: <span id="maxValue">8</span>
+    </div>
+
+    <div class="range-container">
+      <!-- Highlight-baren mellom tomlene -->
+      <div class="range-highlight" id="rangeHighlight"></div>
+
+      <!-- Min-slider -->
+      <input
+        type="range"
+        id="minRange"
+        min="1"
+        max="10"
+        value="2"
+        step="1"
+      >
+
+      <!-- Max-slider -->
+      <input
+        type="range"
+        id="maxRange"
+        min="1"
+        max="10"
+        value="8"
+        step="1"
+      >
+    </div>
+  </div>
+
+  <script>
+    const minRange = document.getElementById("minRange");
+    const maxRange = document.getElementById("maxRange");
+    const minValueSpan = document.getElementById("minValue");
+    const maxValueSpan = document.getElementById("maxValue");
+    const highlight = document.getElementById("rangeHighlight");
+
+    const rangeMin = parseInt(minRange.min);
+    const rangeMax = parseInt(maxRange.max);
+
+    function updateValues() {
+      let minVal = parseInt(minRange.value);
+      let maxVal = parseInt(maxRange.value);
+
+      // Sørg for at min aldri går forbi max
+      if (minVal > maxVal) {
+        minVal = maxVal;
+        minRange.value = minVal;
+      }
+
+      // Sørg for at max aldri går under min
+      if (maxVal < minVal) {
+        maxVal = minVal;
+        maxRange.value = maxVal;
+      }
+
+      // Oppdatér tekst
+      minValueSpan.textContent = minVal;
+      maxValueSpan.textContent = maxVal;
+
+      // Beregn posisjon til highlight-baren i %
+      const total = rangeMax - rangeMin;
+      const leftPercent = ((minVal - rangeMin) / total) * 100;
+      const rightPercent = ((maxVal - rangeMin) / total) * 100;
+
+      highlight.style.left = leftPercent + "%";
+      highlight.style.width = (rightPercent - leftPercent) + "%";
+    }
+
+    // Kjør når vi drar på noen av sliderne
+    minRange.addEventListener("input", updateValues);
+    maxRange.addEventListener("input", updateValues);
+
+    // Init ved start
+    updateValues();
+  </script>
+</body>
+</html>
+
+

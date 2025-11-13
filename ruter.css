@@ -12,6 +12,16 @@ button{
     padding: 10px;
 }
 /* main */
+.searchWindow{
+    height: 32px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+
 .listView{
     display: flex;
     justify-content: center;
