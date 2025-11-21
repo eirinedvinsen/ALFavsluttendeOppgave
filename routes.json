@@ -1,0 +1,330 @@
+{
+    "routes": [
+      {
+        "id": 1,
+        "name": "Sanne løgner",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7+",
+        "type": "sport",
+        "info": {
+            "height": 10,
+            "anchorBolts": 2,
+            "protectionBolts": 3
+        },
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 2,
+        "name": "Geocache",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7",
+        "type": "sport",
+        "info": {
+            "height": 12,
+            "anchorBolts": 2,
+            "protectionBolts": 4
+        },
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 3,
+        "name": "Åpent prosjekt",
+        "status": "unavailable"
+      },
+      {
+        "id": 4,
+        "name": "Babewatch",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "8/8+",
+        "type": "sport",
+        "info": {
+            "height": 15,
+            "anchorBolts": 2,
+            "protectionBolts":4
+        },
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 5,
+        "name": "Babywatch",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "8-",
+        "type": "sport",
+        "info": {
+            "height": 10,
+            "anchorBolts":2,
+            "protectionBolts":4
+        },
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 6,
+        "name": "En famlende finger",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7+/8-",
+        "type": "sport",
+        "info":{
+            "height":15,
+            "anchorBolts":2,
+            "protectionBolts":3
+        },
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 7,
+        "name": "Evangelisk aksjon",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7+",
+        "type": "sport",
+        "info":{
+            "height":15,
+            "anchorBolts":2,
+            "protectionBolts":3
+        },
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 8,
+        "name": "Faustino",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7+",
+        "type": "sport",
+        "info":{
+            "height":15,
+            "anchorBolts":2,
+            "protectionBolts":3
+        },
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 9,
+        "name": "Tjuvstart",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "8-",
+        "type": "sport",
+        "info":{
+            "height":15,
+            "anchorBolts":2,
+            "protectionBolts":5
+        },
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 10,
+        "name": "Solodiederet",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "6+",
+        "type": "sport",
+        "info":{
+            "height":15,
+            "anchorBolts":2,
+            "protectionBolts":3
+        },
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 11,
+        "name": "Nødskrik",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "5-",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 12,
+        "name": "á la Buoux",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7+",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 13,
+        "name": "Patricks favoritt",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7-",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 14,
+        "name": "På skråplanet igjen",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7-",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 15,
+        "name": "Fortidens helter",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 16,
+        "name": "Straffen for luksus",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 17,
+        "name": "Rock versus opera",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 18,
+        "name": "Glemte minner",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 19,
+        "name": "Test-lab.",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "6+",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 20,
+        "name": "á la carte",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "6",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 21,
+        "name": "Billy the kid",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "6-",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 22,
+        "name": "S-risset",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "4+",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 23,
+        "name": "Tannlegeskrekk",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "5+",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 24,
+        "name": "Leppa",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7+",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 25,
+        "name": "Krysset",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "5+",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 26,
+        "name": "Bånnaren",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "5+",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 27,
+        "name": "Chun",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "4-",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      },
+      {
+        "id": 28,
+        "name": "Navigator",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "3+",
+        "type": "sport",
+        "status": "not climbed",
+        "rating": null
+      }
+    ],
+    "savedComments": [
+      {
+        "id": 1,
+        "name": "Sanne løgner",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7+",
+        "user": "Name Name",
+        "status": "climbed",
+        "comment": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, impedit?",
+        "rating": "3 of 5"
+      },
+      {
+        "id": 2,
+        "name": "Geocache",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "7",
+        "user": "Name Name",
+        "status": "climbed",
+        "comment": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, impedit?",
+        "rating": "4 of 5"
+      },
+      {
+        "id": 4,
+        "name": "Babewatch",
+        "location": "Helleneset klatrefelt, Bergen",
+        "grade": "8/8+",
+        "user": "Name Name",
+        "status": "climbed",
+        "comment": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, impedit?",
+        "rating": "2 of 5"
+      }
+    ]
+  }
+  
