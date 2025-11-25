@@ -23,24 +23,37 @@
   <main>
     <section id="searchWindow" class="searchWindow">
       <input type="text" id="search" placeholder="Søk etter rute">
-      <select id="gradeFilter">
-        <option value="">Alle grader</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-      </select>
-      <select id="gradeFilterTwo">
-        <option value="">Alle grader</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-      </select>
+      <div class="gradeFilters">
+        <span>Grad:</span>
+        <label><input type="checkbox" class="gradeCheckbox" value="3"> 3</label>
+        <label><input type="checkbox" class="gradeCheckbox" value="4"> 4</label>
+        <label><input type="checkbox" class="gradeCheckbox" value="5"> 5</label>
+        <label><input type="checkbox" class="gradeCheckbox" value="6"> 6</label>
+        <label><input type="checkbox" class="gradeCheckbox" value="7"> 7</label>
+        <label><input type="checkbox" class="gradeCheckbox" value="8"> 8</label>
+      </div>
+
+      <div class="rangeFilters">
+        <label>
+          Høyde min (m):
+          <input type="number" id="minHeight" min="0">
+        </label>
+        <label>
+          Høyde maks (m):
+          <input type="number" id="maxHeight" min="0">
+        </label>
+      </div>
+
+      <div class="rangeFilters">
+        <label>
+          QD min:
+          <input type="number" id="minQD" min="0">
+        </label>
+        <label>
+          QD maks:
+          <input type="number" id="maxQD" min="0">
+        </label>
+      </div>
     </section>
 
     <section id="listView" class="listView">
@@ -61,10 +74,18 @@
         <textarea class="comments" id="comments" name="comments" rows="5" cols="30"></textarea>
       </label>
       <br>
-      <label for="">
-        Rating:
-        <input type="number" min="1" max="5" id="rating">
-      </label>
+      <div class="ratingWrapper">
+        <span>Rating:</span>
+        <div id="ratingStars" class="rating-stars">
+          <span data-value="1">★</span>
+          <span data-value="2">★</span>
+          <span data-value="3">★</span>
+          <span data-value="4">★</span>
+          <span data-value="5">★</span>
+        </div>
+        <button id="saveCommentBtn">Lagre kommentar</button>
+
+        <div id="previousComments"></div>
     </section><!-- Tanken er at denne siden er en fullstendig database over klatrefelt, mulig at checklisten blir lagret her og hentet som en iframe til fremsiden, evnt nyttig informasjon? -->
     <!-- div med tabell display none-->
     <!-- div med detaljside med hidden -->

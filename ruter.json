@@ -137,6 +137,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "5-",
         "type": "sport",
+        "info":{
+          "height":15,
+          "anchorBolts":2,
+          "protectionBolts":3
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -146,6 +151,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "7+",
         "type": "sport",
+        "info":{
+          "height":15,
+          "anchorBolts":2,
+          "protectionBolts":4
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -155,6 +165,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "7-",
         "type": "sport",
+        "info":{
+          "height":15,
+          "anchorBolts":2,
+          "protectionBolts":4
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -164,6 +179,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "7-",
         "type": "sport",
+        "info":{
+          "height":15,
+          "anchorBolts":2,
+          "protectionBolts":6
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -173,6 +193,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "7",
         "type": "sport",
+        "info":{
+          "height":15,
+          "anchorBolts":2,
+          "protectionBolts":5
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -182,6 +207,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "7",
         "type": "sport",
+        "info":{
+          "height":15,
+          "anchorBolts":2,
+          "protectionBolts":5
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -191,6 +221,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "7",
         "type": "sport",
+        "info":{
+          "height":15,
+          "anchorBolts":2,
+          "protectionBolts":6
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -200,6 +235,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "7",
         "type": "sport",
+        "info":{
+          "height":15,
+          "anchorBolts":2,
+          "protectionBolts":5
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -209,6 +249,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "6+",
         "type": "sport",
+        "info":{
+          "height":15,
+          "anchorBolts":2,
+          "protectionBolts":5
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -218,6 +263,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "6",
         "type": "sport",
+        "info":{
+          "height":14,
+          "anchorBolts":2,
+          "protectionBolts":4
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -227,6 +277,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "6-",
         "type": "sport",
+        "info": {
+          "height":14,
+          "anchorBolts":2,
+          "protectionBolts":5
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -236,6 +291,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "4+",
         "type": "sport",
+        "info":{
+          "height":14,
+          "anchorBolts":2,
+          "protectionBolts":4
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -245,6 +305,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "5+",
         "type": "sport",
+        "info":{
+          "height":14,
+          "anchorBolts":2,
+          "protectionBolts":4
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -254,6 +319,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "7+",
         "type": "sport",
+        "info":{
+          "height":13,
+          "anchorBolts":2,
+          "protectionBolts":5
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -263,6 +333,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "5+",
         "type": "sport",
+        "info":{
+          "height":10,
+          "anchorBolts":2,
+          "protectionBolts":3
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -272,6 +347,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "5+",
         "type": "sport",
+        "info":{
+          "height":12,
+          "anchorBolts":2,
+          "protectionBolts":4
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -281,6 +361,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "4-",
         "type": "sport",
+        "info":{
+          "height":14,
+          "anchorBolts":2,
+          "protectionBolts":4
+        },
         "status": "not climbed",
         "rating": null
       },
@@ -290,6 +375,11 @@
         "location": "Helleneset klatrefelt, Bergen",
         "grade": "3+",
         "type": "sport",
+        "info":{
+          "height":14,
+          "anchorBolts":2,
+          "protectionBolts":5
+        },
         "status": "not climbed",
         "rating": null
       }

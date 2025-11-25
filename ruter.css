@@ -49,6 +49,18 @@ textarea.comments{
     border: 1px solid var(--secondaryColor);
 }
 
+.rating-stars span {
+  font-size: 1.4rem;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+.rating-stars span.active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
 
 
 /* footer */
