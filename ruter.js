@@ -1,295 +1,11 @@
-// dette er flyttet til script, frem til filen blir for stor, hva er for stort, nobody knows
-const routes = [
-    {
-        id: 1,
-        name: "Sanne løgner",
-        location: "Helleneset klatrefelt, Bergen",
-        grade: "7+",
-        type: "sport",
-        info: "Toppfeste: 2 limbolter, Antall bolter: 3 bolter, høyde: 10m",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 2,
-        name: "Geocache",
-        location: "Helleneset klatrefelt, Bergen",
-        grade: "7",
-        type: "sport",
-        info: "Toppfest: 2 ringer/limbolter, Antall bolter: 4 bolter, høyde: 12m",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 3,
-        name: "Åpent prosjekt",
-        status: "unavailable",
-    },
-    {
-        id: 4,
-        name: "Babewatch",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "8/8+",
-        type: "sport",
-        info: "Toppfeste: 2 ringer/limbolter, Antall bolter: 4 bolter, høyde: 15m",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 5,
-        name: "Babywatch",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "8-",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 6,
-        name: "En famlende finger",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "7+/8-",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 7,
-        name: "Evangelisk aksjon",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "7+",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 8,
-        name: "Faustino",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "7+",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 9,
-        name: "Tjuvstart",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "8-",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 10,
-        name: "Solodiederet",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "6+",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 11,
-        name: "Nødskrik",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "5-",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 12,
-        name: "á la Buoux",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "7+",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 13,
-        name: "Patricks favoritt",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "7-",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 14,
-        name: "På skråplanet igjen",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "7-",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 15,
-        name: "Fortidens helter",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "7",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 16,
-        name: "Straffen for luksus",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "7",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 17,
-        name: "Rock versus opera",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "7",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 18,
-        name: "Glemte minner",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "7",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 19,
-        name: "Test-lab.",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "6+",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 20,
-        name: "á la carte",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "6",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 21,
-        name: "Billy the kid",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "6-",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 22,
-        name: "S-risset",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "4+",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 23,
-        name: "Tannlegeskrekk",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "5+",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 24,
-        name: "Leppa",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "7+",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 25,
-        name: "Krysset",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "5+",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 26,
-        name: "Bånnaren",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "5+",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 27,
-        name: "Chun",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "4-",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    },
-    {
-        id: 28,
-        name: "Navigator",
-        locaction: "Helleneset klatrefelt, Bergen",
-        grade: "3+",
-        type: "sport",
-        status: "not climbed",
-        rating: null
-    }
-];
-
-let savedComments = [
-    {
-        id: 1,
-        name: "Sanne løgner",
-        location: "Helleneset klatrefelt, Bergen",
-        grade: "7+",
-        user: "Name Name",
-        status: "climbed",
-        comment: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, impedit?" ,
-        rating: "3 of 5"
-    },
-    {
-        id: 2,
-        name: "Geocache",
-        location: "Helleneset klatrefelt, Bergen",
-        grade: "7",
-        user: "Name Name",
-        status: "climbed",
-        comment: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, impedit?" ,
-        rating: "4 of 5"
-    },    
-    {
-        id: 4,
-        name: "Babewatch",
-        location: "Helleneset klatrefelt, Bergen",
-        grade: "8/8+",
-        user: "Name Name",
-        status: "climbed",
-        comment: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, impedit?" ,
-        rating: "2 of 5"
-    }, 
-
-];
-//console.log(routes.length);
-
+// Henter tidligere lagrede ruter fra localStorage (eller tom liste hvis ingenting lagret)
 let climbedRoutes = JSON.parse(localStorage.getItem("climbedRoutes")) || [];
 
+// Disse fylles med data fra ruter.json når loadRouteData() kjører
+let routes = [];
+let savedComments = [];
+
+// Henter HTML-elementer vi skal bruke (SPA: listView vs detailView)
 let listView = document.getElementById("listView");
 let detailView = document.getElementById("detailView");
 let climbingRoutesDiv = document.getElementById("climbingRoutes");
@@ -297,14 +13,99 @@ let climbingRoutesDiv = document.getElementById("climbingRoutes");
 const routeName = document.getElementById("routeName");
 const routeGrade = document.getElementById("routeGrade");
 const routeInfo = document.getElementById("routeInfo");
-const commentsDiv = document.getElementById("comments");
-const rating = document.getElementById("rating");
+
+const commentsInput = document.getElementById("comments");          // textarea
+const ratingStars = document.getElementById("ratingStars");         // stjerner
+const previousCommentsDiv = document.getElementById("previousComments"); // div for gamle kommentarer
+
 const backBtn = document.getElementById("backBtn");
 
 let currentRoute = null;
 
-function renderList(filteredRoutes = routes){
-    climbingRoutesDiv.innerHTML ="";
+console.log("Init elements:", {
+    listView,
+    detailView,
+    climbingRoutesDiv,
+    routeName,
+    routeGrade,
+    routeInfo,
+    commentsInput,        
+    ratingStars,          
+    previousCommentsDiv,  
+    backBtn
+});
+
+// --------- HENTE DATA FRA ruter.json ---------
+
+function loadRouteData() {
+    console.log("Laster ruter.json ...");
+    fetch("ruter.json")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP-feil: " + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Legger data inn i variablene våre
+            routes = data.routes || [];
+            savedComments = data.savedComments || [];
+
+            console.log("Data lastet:", {
+                antallRuter: routes.length,
+                antallKommentarer: savedComments.length
+            });
+
+            // Når data er klare, tegner vi liste og oppdaterer progresjon
+            renderList();
+            progressCounter();
+        })
+        .catch(error => {
+            console.error("Klarte ikke laste ruter.json:", error);
+        });
+}
+
+// --------- HJELPEFUNKSJON: INFO-TEKST ---------
+
+// Lager en pen tekst ut av info-objektet i ruter.json
+function getRouteInfoText(route) {
+    if (!route.info) {
+        return "Ingen ruteinfo tilgjengelig.";
+    }
+
+    const height = route.info.height;
+    const anchorBolts = route.info.anchorBolts;
+    const protectionBolts = route.info.protectionBolts;
+
+    // Quickdraws = antall bolter du klipper (protectionBolts)
+    return `Høyde: ${height} m, toppfeste: ${anchorBolts} bolter, quickdraws: ${protectionBolts}`;
+}
+
+// --------- LISTEVISNING ---------
+
+// Tegner liste-oversikt, basert på routes fra ruter.json
+function renderList(filteredRoutes = routes) {
+    console.log("Render list, antall ruter:", filteredRoutes.length);
+    if (!climbingRoutesDiv) {
+        console.error("Finner ikke #climbingRoutes i HTML-en");
+        return;
+    }
+
+    // Tømmer lista før vi tegner på nytt
+    climbingRoutesDiv.innerHTML = "";
+
+    // Hvis ingen ruter (f.eks. feil i lasting), vis en enkel tekst
+    if (!filteredRoutes || filteredRoutes.length === 0) {
+        const emptyDiv = document.createElement("div");
+        emptyDiv.textContent = "Ingen ruter å vise.";
+        climbingRoutesDiv.appendChild(emptyDiv);
+
+        if (listView && detailView) {
+            listView.style.display = "block";
+            detailView.style.display = "none";
+        }
+        return;
+    }
 
     filteredRoutes.forEach(route => {
         const isChecked = climbedRoutes.includes(route.id);
@@ -312,22 +113,27 @@ function renderList(filteredRoutes = routes){
         routeDiv.classList.add("route");
 
         const label = document.createElement("label");
-        label.textContent = `${route.name} (${route.grade || "ukjent grad"})`;
+
+        const gradeText = route.grade ? route.grade : "ukjent grad";
+        label.textContent = `${route.name} (${gradeText})`;
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.dataset.id = route.id;
         checkbox.checked = isChecked;
 
+        // Checkbox før teksten
         label.prepend(checkbox);
         routeDiv.appendChild(label);
 
+        // Klikk på boksen = oppdatere lagrede klatreruter
         checkbox.addEventListener("click", e => {
-            e.stopPropagation();
+            // VIKTIG: vi stopper ikke bobling her
+            const id = parseInt(e.target.dataset.id);
+            console.log("Klikket på checkbox for rute id:", id);
 
-            const id= parseInt(e.target.dataset.id);
-            if (e.target.checked){
-                if(!climbedRoutes.includes(id)) climbedRoutes.push(id);
+            if (e.target.checked) {
+                if (!climbedRoutes.includes(id)) climbedRoutes.push(id);
             } else {
                 climbedRoutes = climbedRoutes.filter(rid => rid !== id);
             }
@@ -336,84 +142,223 @@ function renderList(filteredRoutes = routes){
             progressCounter();
         });
 
-        routeDiv.addEventListener("click", ()=> showDetail(route.id));
+        // Klikk på selve rute-diven = åpne detaljvisning
+        routeDiv.addEventListener("click", (e) => {
+            console.log("Klikket på rute-div, id:", route.id, "target:", e.target.tagName);
+            showDetail(route.id);
+        });
+
         climbingRoutesDiv.appendChild(routeDiv);
     });
-    listView.style.display = "block";
-    detailView.style.display = "none";
-};
 
-document.getElementById("search").addEventListener("input", (e)=> {
-    const query = e.target.value.toLowerCase();
-    const filtered = routes.filter(r => r.name.toLowerCase().includes(query));
-    renderList(filtered);
-});
+    if (listView && detailView) {
+        listView.style.display = "block";
+        detailView.style.display = "none";
+    } else {
+        console.warn("listView eller detailView finnes ikke i HTML.");
+    }
+}
 
-function applyFilters(){
-    //en start på filtrering, neste er å kunne velge flere ruter for filtrering, f.eks 3-5
-    const query = document.getElementById("search").value.toLowerCase();
-    const selectedGradeFrom = document.getElementById("gradeFilter").value;
-    const selectedGradeTo = document.getElementById("gradeFilterTwo").value;
+// --------- FILTER / SØK ---------
+
+// Filterer på navn, grad, lengde og quickdraws
+function applyFilters() {
+    const searchInputElement = document.getElementById("search");
+    const query = searchInputElement ? searchInputElement.value.toLowerCase() : "";
+
+    // Grad fra/til
+    const gradeFilterFromElement = document.getElementById("gradeFilter");
+    const gradeFilterToElement = document.getElementById("gradeFilterTwo");
+    const selectedGradeFrom = gradeFilterFromElement ? gradeFilterFromElement.value : "";
+    const selectedGradeTo = gradeFilterToElement ? gradeFilterToElement.value : "";
     const gradeFrom = selectedGradeFrom ? parseInt(selectedGradeFrom) : null;
-    const gradeTo = selectedGradeTo ? parseInt(selectedGradeTo) : null; 
+    const gradeTo = selectedGradeTo ? parseInt(selectedGradeTo) : null;
 
-    let filtered = routes;
+    // Lengde (meter) fra/til
+    const lengthFromValue = document.getElementById("lengthFilterFrom")?.value;
+    const lengthToValue = document.getElementById("lengthFilterTo")?.value;
+    const lengthFrom = lengthFromValue ? parseInt(lengthFromValue) : null;
+    const lengthTo = lengthToValue ? parseInt(lengthToValue) : null;
 
-    if(query){
-        filtered = filtered.filter(r=> r.name.toLowerCase().includes(query));
-    }
-    
-    if(gradeFrom !== null || gradeTo !== null){
-        filtered = filtered.filter(r => {
-            const g = parseInt(r.grade);
-            if(isNaN(g)) return false;
-            if(gradeFrom!== null && g < gradeFrom)return false;
-            if (gradeTo !== null && g > gradeTo) return false;
+    // Quickdraws (protectionBolts) fra/til
+    const quickdrawFromValue = document.getElementById("quickdrawFilterFrom")?.value;
+    const quickdrawToValue = document.getElementById("quickdrawFilterTo")?.value;
+    const quickdrawFrom = quickdrawFromValue ? parseInt(quickdrawFromValue) : null;
+    const quickdrawTo = quickdrawToValue ? parseInt(quickdrawToValue) : null;
 
-            return true;
-        })
-    }
+    const filtered = routes.filter(route => {
+        // 1) Søk på navn
+        const matchesSearch =
+            !query || route.name.toLowerCase().includes(query);
 
+        // 2) Filtrere på grad (bruker bare tallet i starten, f.eks. "7+/8-" → 7)
+        let matchesGrade = true;
+        if (gradeFrom !== null || gradeTo !== null) {
+            const gradeNumber = parseInt(route.grade); // kan bli NaN
+            if (isNaN(gradeNumber)) {
+                matchesGrade = false;
+            } else {
+                if (gradeFrom !== null && gradeNumber < gradeFrom) matchesGrade = false;
+                if (gradeTo !== null && gradeNumber > gradeTo) matchesGrade = false;
+            }
+        }
+
+        // 3) Filtrere på lengde (height i info)
+        let matchesLength = true;
+        if (lengthFrom !== null || lengthTo !== null) {
+            const height = route.info?.height;
+            if (typeof height !== "number") {
+                matchesLength = false;
+            } else {
+                if (lengthFrom !== null && height < lengthFrom) matchesLength = false;
+                if (lengthTo !== null && height > lengthTo) matchesLength = false;
+            }
+        }
+
+        // 4) Filtrere på quickdraws (protectionBolts i info)
+        let matchesQuickdraws = true;
+        if (quickdrawFrom !== null || quickdrawTo !== null) {
+            const quickdraws = route.info?.protectionBolts;
+            if (typeof quickdraws !== "number") {
+                matchesQuickdraws = false;
+            } else {
+                if (quickdrawFrom !== null && quickdraws < quickdrawFrom) matchesQuickdraws = false;
+                if (quickdrawTo !== null && quickdraws > quickdrawTo) matchesQuickdraws = false;
+            }
+        }
+
+        return (
+            matchesSearch &&
+            matchesGrade &&
+            matchesLength &&
+            matchesQuickdraws
+        );
+    });
+
+    console.log("Filter resultat, antall ruter:", filtered.length);
     renderList(filtered);
 }
 
-document.getElementById("search").addEventListener("input", applyFilters);
-document.getElementById("gradeFilter").addEventListener("change", applyFilters);
-document.getElementById("gradeFilterTwo").addEventListener("change", applyFilters)
+// Alle filter-felter bruker samme filter-funksjon
+const searchInput = document.getElementById("search");
+if (searchInput) {
+    searchInput.addEventListener("input", applyFilters);
+}
 
-function showDetail(routeId){
-    //console.log("Viser detaljer for rute med id:", routeId);
+const gradeFilterFrom = document.getElementById("gradeFilter");
+if (gradeFilterFrom) {
+    gradeFilterFrom.addEventListener("change", applyFilters);
+}
+
+const gradeFilterTo = document.getElementById("gradeFilterTwo");
+if (gradeFilterTo) {
+    gradeFilterTo.addEventListener("change", applyFilters);
+}
+
+// Lytte på lengde-filter
+const lengthFromInput = document.getElementById("lengthFilterFrom");
+if (lengthFromInput) {
+    lengthFromInput.addEventListener("input", applyFilters);
+}
+const lengthToInput = document.getElementById("lengthFilterTo");
+if (lengthToInput) {
+    lengthToInput.addEventListener("input", applyFilters);
+}
+
+// Lytte på quickdraw-filter
+const quickdrawFromInput = document.getElementById("quickdrawFilterFrom");
+if (quickdrawFromInput) {
+    quickdrawFromInput.addEventListener("input", applyFilters);
+}
+const quickdrawToInput = document.getElementById("quickdrawFilterTo");
+if (quickdrawToInput) {
+    quickdrawToInput.addEventListener("input", applyFilters);
+}
+
+// --------- DETALJVISNING ---------
+
+function showDetail(routeId) {
+    console.log("Vis detaljer for id:", routeId);
+
+    // Finn ruten med riktig id
     currentRoute = routes.find(r => r.id === routeId);
-    const saved = savedComments.find(c => c.id === routeId);
-
-    routeName.textContent = currentRoute.name;
-    routeGrade.textContent=`Grad: ${currentRoute.grade}`;
-    routeInfo.textContent = currentRoute.info || "Ingen ruteinfo tilgjengelig";
-
-    if (saved){
-        commentsDiv.textContent = `Kommentar fra ${saved.user}: "${saved.comment}"`;
-        rating.value = `Rating: ${saved.rating}`;
-    } else {
-        commentsDiv.textContent = "Ingen kommentarer enda.";
-        rating.value = "";
+    if (!currentRoute) {
+        console.warn("Fant ikke rute med id:", routeId);
+        return;
     }
-    listView.style.display = "none";
-    detailView.style.display= "block";
-};
 
-backBtn.addEventListener("click", () => {
-   // console.log ("Back to list");
-    renderList();
-});
+    // Sjekk at vi faktisk fant HTML-elementene
+    if (!routeName || !routeGrade || !routeInfo || !commentsInput || !previousCommentsDiv) {
+        console.error("DetailView-elementer mangler i HTML (routeName/routeGrade/routeInfo/comments/previousComments).");
+        return;
+    }
 
-function progressCounter(){
+    // Sett inn navn, grad og info
+    routeName.textContent = currentRoute.name || "Ukjent navn";
+
+    routeGrade.textContent = currentRoute.grade
+        ? `Grad: ${currentRoute.grade}`
+        : "Grad: ukjent";
+
+    // Bruker info-objektet fra ruter.json
+    routeInfo.textContent = getRouteInfoText(currentRoute);
+
+    // Tøm textarea hver gang vi åpner detaljvisning
+    commentsInput.value = "";
+
+    // Vis tidligere kommentarer for denne ruten (fra savedComments i ruter.json)
+    const routeComments = savedComments.filter(c => c.id === routeId);
+
+    previousCommentsDiv.innerHTML = ""; // tømmer gammel visning
+
+    if (routeComments.length === 0) {
+        previousCommentsDiv.textContent = "Ingen kommentarer enda.";
+    } else {
+        routeComments.forEach(commentObj => {
+            const commentEl = document.createElement("div");
+            commentEl.classList.add("previous-comment");
+            commentEl.textContent = `${commentObj.user} (${commentObj.rating}): ${commentObj.comment}`;
+            previousCommentsDiv.appendChild(commentEl);
+        });
+    }
+
+    // (valgfritt) resette stjerner visuelt her senere
+
+    if (listView && detailView) {
+        listView.style.display = "none";
+        detailView.style.display = "block";
+    } else {
+        console.warn("listView eller detailView finnes ikke i HTML.");
+    }
+}
+
+// Tilbake-knapp: gå tilbake til listevisning
+if (backBtn) {
+    backBtn.addEventListener("click", () => {
+        console.log("Klikket på tilbake-knapp");
+        renderList();
+    });
+} else {
+    console.warn("Finner ikke backBtn i HTML.");
+}
+
+// --------- PROGRESJONSTELLER ---------
+
+function progressCounter() {
     const progressText = document.getElementById("progressText");
+    if (!progressText) {
+        console.warn("Finner ikke #progressText i HTML.");
+        return;
+    }
+
     progressText.textContent = `${climbedRoutes.length} av ${routes.length} ruter logget.`;
 }
 
+// --------- START APPEN ---------
 
-renderList();
-progressCounter();
+// Starter med å hente data fra ruter.json
+loadRouteData();
+
 
 //bestemme range, (slider?)
 //to nedtrekksmenyer til og fra ( godt sted å starte)
