@@ -144,7 +144,13 @@ function renderList(filteredRoutes = routes) {
 
         // Klikk på selve rute-diven = åpne detaljvisning
         routeDiv.addEventListener("click", (e) => {
-            console.log("Klikket på rute-div, id:", route.id, "target:", e.target.tagName);
+            // Hvis det faktiske klikket traff en <input> (checkbox) → gjør ingenting
+            if (e.target.tagName.toLowerCase() === "input") {
+                console.log("Klikk på checkbox, åpner IKKE detaljvisning");
+                return;
+            }
+        
+            console.log("Klikket på rute-div (ikke checkbox), id:", route.id, "target:", e.target.tagName);
             showDetail(route.id);
         });
 
