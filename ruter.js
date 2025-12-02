@@ -37,32 +37,29 @@ console.log("Init elements:", {
 
 // --------- HENTE DATA FRA ruter.json ---------
 
-function loadRouteData() {
+async function loadRouteData() {
     console.log("Laster ruter.json ...");
-    fetch("ruter.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("HTTP-feil: " + response.status);
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Legger data inn i variablene våre
-            routes = data.routes || [];
-            savedComments = data.savedComments || [];
 
-            console.log("Data lastet:", {
-                antallRuter: routes.length,
-                antallKommentarer: savedComments.length
-            });
+    try {
+        const response = await fetch("ruter.json");
 
-            // Når data er klare, tegner vi liste og oppdaterer progresjon
-            renderList();
-            progressCounter();
-        })
-        .catch(error => {
-            console.error("Klarte ikke laste ruter.json:", error);
+        if (!response.ok) {
+            throw new Error("HTTP-feil: " + response.status);
+        }
+
+        const data = await response.json();
+
+        // Legger data inn i variablene våre
+        routes = data.routes || [];
+        savedComments = data.savedComments || [];
+
+        console.log("Data lastet:", {
+            antallRuter: routes.length,
+            antallKommentarer: savedComments.length
         });
+    } catch (error) {
+        console.error("Feil ved lasting av ruter.json:", error);
+    }
 }
 
 // --------- HJELPEFUNKSJON: INFO-TEKST ---------
@@ -363,7 +360,18 @@ function progressCounter() {
 // --------- START APPEN ---------
 
 // Starter med å hente data fra ruter.json
-loadRouteData();
+async function init() {
+    // 1. Last data fra ruter.json
+    await loadRouteData();
+
+    // 2. Tegn lista basert på de ruter som kom inn
+    renderList();
+
+    // 3. Oppdater progresjonsteksten
+    progressCounter();
+}
+
+document.addEventListener("DOMContentLoaded", init);
 
 
 //bestemme range, (slider?)
