@@ -22,35 +22,46 @@
   </header>
   <main>
     <section id="searchWindow" class="searchWindow">
-      <input type="text" id="search" placeholder="Søk etter rute">
-      <div class="gradeFilters">
-        <span>Grad:</span>
-        <label><input type="checkbox" class="gradeCheckbox" value="3"> 3</label>
-        <label><input type="checkbox" class="gradeCheckbox" value="4"> 4</label>
-        <label><input type="checkbox" class="gradeCheckbox" value="5"> 5</label>
-        <label><input type="checkbox" class="gradeCheckbox" value="6"> 6</label>
-        <label><input type="checkbox" class="gradeCheckbox" value="7"> 7</label>
-        <label><input type="checkbox" class="gradeCheckbox" value="8"> 8</label>
+
+      <div class="searchWindowInner">
+        <div class="searchWindowRow searchWindowRowTop">
+          <div class="searchWindowSearch">
+            <input type="text" id="search" placeholder="Søk etter rute">
+          </div>
+        </div>
+      </div>
+      
+      <div class="searchWindowRow">
+        <div class="gradeFilters">
+          <span>Grad:</span>
+          <label><input type="checkbox" class="gradeCheckbox" value="3"> 3</label>
+          <label><input type="checkbox" class="gradeCheckbox" value="4"> 4</label>
+          <label><input type="checkbox" class="gradeCheckbox" value="5"> 5</label>
+          <label><input type="checkbox" class="gradeCheckbox" value="6"> 6</label>
+          <label><input type="checkbox" class="gradeCheckbox" value="7"> 7</label>
+          <label><input type="checkbox" class="gradeCheckbox" value="8"> 8</label>
+        </div>
       </div>
 
-      <div class="rangeFilters">
-        <label>
-          Høyde min (m):
-          <input type="number" id="minHeight" min="0">
-        </label>
-        <label>
-          Høyde maks (m):
-          <input type="number" id="maxHeight" min="0">
-        </label>
+      <div class="searchWindowRow searchWindowRanges">
+        <div class="rangeGroup">
+          <span class="searchWindowLabel">Høyde (m)</span>
+          <label>Min
+            <input type="number" id="minHeight" min="0">
+          </label>
+          <label>
+            <input type="number" id="maxHeight" min="0">
+          </label>
+        </div>
       </div>
 
-      <div class="rangeFilters">
+      <div class="rangeGroup">
+        <span class="searchWindowLabel">QuickDraws</span>
         <label>
-          QD min:
+          Min
           <input type="number" id="minQD" min="0">
         </label>
         <label>
-          QD maks:
           <input type="number" id="maxQD" min="0">
         </label>
       </div>
@@ -62,31 +73,53 @@
       <div id="climbingRoutes"></div>
     </section>
     
-    <section id="detailView" class="detailView">
-      <button id="backBtn">Tilbake</button>
-      <h2 id="routeName"></h2>
-      <p id="routeGrade"></p>
-      <p id="routeInfo"></p>
-      <div><img src="" alt=""></div>
+    <section id="detailView" class="detailView routeCard">
+      <div class="routeCardTop">
+        <button id="backBtn" class="routeCardBackBtn">Tilbake</button>
 
-      <label for="">
-        Kommentar: <br>
-        <textarea class="comments" id="comments" name="comments" rows="5" cols="30" readonly></textarea>
-      </label>
-      <br>
-      <div class="ratingWrapper">
+        <label class="tickToggle">
+          <input type="checkbox" id="detailClimbedToggle">
+          <span class="tickTogglePill">Logget rute</span>
+        </label>
+      </div>
+
+      <div class="routeCardHeader">
+        <h2 id="routeName"></h2>
+        <p id="routeGrade" class="routeCardGrade"></p>
+      </div>
+
+      <div class="routeCardBody">
+        <div class="routeCardImageWrapper">
+          <img src="" alt="">
+        </div>
+        <div class="routeCardInfo">
+          <p id="routeInfo"></p>
+        </div>
+      </div>
+
+      <div class="routeCardRating">
         <span>Rating:</span>
-        <div id="ratingStars" class="rating-stars">
+        <div id="ratingStars" class="ratingStars">
           <span data-value="1">★</span>
           <span data-value="2">★</span>
           <span data-value="3">★</span>
           <span data-value="4">★</span>
-          <span data-value="5">★</span>
+          <span data-value="5">★</span> 
         </div>
-        <button id="saveCommentBtn">Lagre kommentar</button>
-
-        <div id="previousComments"></div>
       </div>
+
+      <div class="routeCardComments">
+        <label>
+          Kommentar: <br>
+          <textarea class="comments" id="comments" name="comments" rows="5" cols="30" readonly></textarea>
+        </label>
+        <button id="saveCommentsBtn" class="routeCardSaveBtn">Lagre kommentar</button>
+
+        <div id="previousComments" class="routeCardPreviousComments">
+
+        </div>
+      </div>
+      
     </section><!-- Tanken er at denne siden er en fullstendig database over klatrefelt, mulig at checklisten blir lagret her og hentet som en iframe til fremsiden, evnt nyttig informasjon? -->
     <!-- div med tabell display none-->
     <!-- div med detaljside med hidden -->

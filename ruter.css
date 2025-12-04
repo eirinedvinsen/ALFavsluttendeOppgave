@@ -13,29 +13,182 @@ button{
 }
 /* main */
 .searchWindow{
-    height: 32px;
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    padding: 10px;
+ margin: 1.5rem auto;
+ max-width: 1200px;
 }
 
+.searchWindowInner {
+    background-color: var(--accentChalk);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
+.searchWindowRow {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 0.75rem 1.5rem;
+     align-items: center;
+}
 
-.listView{
+.searchWindowRowTop {
+    justify-content: space-between;
+}
+
+.searchWindowSearch {
+    flex: 1;
+}
+
+.searchWindowSearch input[type="text"] {
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--accentSnow);
+    background-color: var(--primaryColor);
+    font-size: 0.95rem;
+}
+
+.searchWindowSearch input[type="text"]:focus {
+    outline: 2px solid var(--accentSky);
+    border-color: var(--accentSky);
+}
+
+.searchWindowProgress {
+    font-size: 0.9rem;
+    color: var(--secondaryColor);
+    opacity: 0.8;
+}
+
+.searchWindowLabel {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08rem;
+    font-weight: 600;
+    color: var(--secondaryColor);
+    opacity: 0.8;
+}
+
+/*Grade Filters*/
+
+.gradeFilters{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.gradeChip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    background-color: var(--accentSnow);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0,85rem;
+    cursor: pointer;
+}
+
+.gradeChip input {
+    accent-color: var(--accentMoss);
+}
+
+.searchWindowRanges {
+    justify-content: flex-start;
+}
+
+.rangeGroup {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.rangeGroup input[type="number"] {
+    width: 80px;
+    padding: 0.35rem 0.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--accentSnow);
+    background-color: var(--primaryColor);
+}
+
+@media (max-width: 700px) {
+    .searchWindowRowTop {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+
+    .searchWindowProgress{
+        align-self: flex-start;
+    }
+}
+
+.listView {
     display: flex;
     justify-content: center;
     color: var(--secondaryColor);
 }
 /*detailView*/
-.detailView{
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: var(--accentChalk);
-    border-radius:var(--radius);
+.detailView {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: none; /*styres m JS*/
+}
+
+.routeCard {
+    background-color: var(--accentChalk);
+    border-radius: 16px;
     box-shadow: var(--shadow);
-    color: var(--secondaryColor);
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.routeCardTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.routeCardBackBtn {
+    border: none;
+    background: transparent;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/*Logg toggle*/
+
+.tickToggle input {
+    display: none;
+}
+
+.tickTogglePill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background-color: var(--accentSnow);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.tickToggle input:checked + .tickTogglePill {
+    background-color: var(--accentMoss);
+    color: var(--primaryColor);
+    border-color: var(--accentMoss);
 }
 
 #backBtn{
