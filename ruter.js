@@ -84,84 +84,71 @@ function getRouteInfoText(route) {
 // Tegner liste-oversikt, basert på routes fra ruter.json
 function renderList(filteredRoutes = routes) {
     console.log("Render list, antall ruter:", filteredRoutes.length);
+  
     if (!climbingRoutesDiv) {
-        console.error("Finner ikke #climbingRoutes i HTML-en");
-        return;
+      console.error("Finner ikke #climbingRoutes i HTML-en");
+      return;
     }
-
+  
     // Tømmer lista før vi tegner på nytt
     climbingRoutesDiv.innerHTML = "";
-
+  
     // Hvis ingen ruter (f.eks. feil i lasting), vis en enkel tekst
     if (!filteredRoutes || filteredRoutes.length === 0) {
-        const emptyDiv = document.createElement("div");
-        emptyDiv.textContent = "Ingen ruter å vise.";
-        climbingRoutesDiv.appendChild(emptyDiv);
-
-        if (listView && detailView) {
-            listView.style.display = "block";
-            detailView.style.display = "none";
-        }
-        return;
-    }
-
-    filteredRoutes.forEach(route => {
-        const isChecked = climbedRoutes.includes(route.id);
-        const routeDiv = document.createElement("div");
-        routeDiv.classList.add("route");
-
-        const label = document.createElement("label");
-
-        const gradeText = route.grade ? route.grade : "ukjent grad";
-        label.textContent = `${route.name} (${gradeText})`;
-
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.dataset.id = route.id;
-        checkbox.checked = isChecked;
-
-        // Checkbox før teksten
-        label.prepend(checkbox);
-        routeDiv.appendChild(label);
-
-        // Klikk på boksen = oppdatere lagrede klatreruter
-        checkbox.addEventListener("click", e => {
-            // VIKTIG: vi stopper ikke bobling her
-            const id = parseInt(e.target.dataset.id);
-            console.log("Klikket på checkbox for rute id:", id);
-
-            if (e.target.checked) {
-                if (!climbedRoutes.includes(id)) climbedRoutes.push(id);
-            } else {
-                climbedRoutes = climbedRoutes.filter(rid => rid !== id);
-            }
-            localStorage.setItem("climbedRoutes", JSON.stringify(climbedRoutes));
-
-            progressCounter();
-        });
-
-        // Klikk på selve rute-diven = åpne detaljvisning
-        routeDiv.addEventListener("click", (e) => {
-            // Hvis det faktiske klikket traff en <input> (checkbox) → gjør ingenting
-            if (e.target.tagName.toLowerCase() === "input") {
-                console.log("Klikk på checkbox, åpner IKKE detaljvisning");
-                return;
-            }
-        
-            console.log("Klikket på rute-div (ikke checkbox), id:", route.id, "target:", e.target.tagName);
-            showDetail(route.id);
-        });
-
-        climbingRoutesDiv.appendChild(routeDiv);
-    });
-
-    if (listView && detailView) {
+      const emptyDiv = document.createElement("div");
+      emptyDiv.textContent = "Ingen ruter å vise.";
+      climbingRoutesDiv.appendChild(emptyDiv);
+  
+      if (listView && detailView) {
         listView.style.display = "block";
         detailView.style.display = "none";
-    } else {
-        console.warn("listView eller detailView finnes ikke i HTML.");
+      }
+      return;
     }
-}
+  
+    filteredRoutes.forEach(route => {
+      const isChecked = climbedRoutes.includes(route.id);
+  
+      const routeDiv = document.createElement("div");
+      routeDiv.classList.add("route");
+      routeDiv.dataset.id = route.id;
+  
+      if (isChecked) {
+        routeDiv.classList.add("routeClimbed");
+      }
+  
+      const label = document.createElement("div");
+      label.classList.add("routeLabel");
+  
+      // status-ikon til venstre
+      const statusSpan = document.createElement("span");
+      statusSpan.classList.add("routeStatus");
+      statusSpan.textContent = isChecked ? "✅" : "⬜";
+  
+      const gradeText = route.grade ? route.grade : "ukjent grad";
+      const textSpan = document.createElement("span");
+      textSpan.textContent = `${route.name} (${gradeText})`;
+  
+      label.appendChild(statusSpan);
+      label.appendChild(textSpan);
+  
+      routeDiv.appendChild(label);
+  
+      // Klikk på hele ruta => åpne detaljvisning
+      routeDiv.addEventListener("click", () => {
+        showDetail(route.id);
+      });
+  
+      climbingRoutesDiv.appendChild(routeDiv);
+    });
+  
+    if (listView && detailView) {
+      listView.style.display = "block";
+      detailView.style.display = "none";
+    } else {
+      console.warn("listView eller detailView finnes ikke i HTML.");
+    }
+  }
 
 // --------- FILTER / SØK ---------
 
