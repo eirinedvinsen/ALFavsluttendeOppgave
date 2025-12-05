@@ -17,6 +17,7 @@ const routeInfo = document.getElementById("routeInfo");
 const commentsInput = document.getElementById("comments");          // textarea
 const ratingStars = document.getElementById("ratingStars");         // stjerner
 const previousCommentsDiv = document.getElementById("previousComments"); // div for gamle kommentarer
+const detailClimbedToggle = document.getElementById("detailClimbedToggle");
 
 const backBtn = document.getElementById("backBtn");
 
@@ -290,10 +291,37 @@ function showDetail(routeId) {
         return;
     }
 
-    // Sjekk at vi faktisk fant HTML-elementene
+    // Sjekk at det faktisk fant HTML-elementene
     if (!routeName || !routeGrade || !routeInfo || !commentsInput || !previousCommentsDiv) {
         console.error("DetailView-elementer mangler i HTML (routeName/routeGrade/routeInfo/comments/previousComments).");
         return;
+    }
+
+    if (detailClimbedToggle) {
+        detailClimbedToggle.checked = climbedRoutes.includes(routeId);
+    }
+
+    if (detailClimbedToggle) {
+        detailClimbedToggle.addEventListener("change", (e)=> {
+            if(!currentRoute) return;
+            const id = currentRoute.id;
+
+            if(e.target.checked) {
+                if(!climbedRoutes.includes(id)) climbedRoutes.push(id);
+            } else {
+                climbedRoutes = climbedRoutes.filter(routeId = routeId !==id);
+            }
+
+            localStorage.setItem("climbedRoutes", JSON.stringify(climbedRoutes));
+            progressCounter();
+
+            const listCheckbox = climbedRoutesDiv?.querySelector(
+                `input[type=checkbox][data-id="${id}"]`
+            );
+            if(listCheckbox) {
+                listCheckbox.checked = e.targetchecked
+            }
+        });
     }
 
     // Sett inn navn, grad og info

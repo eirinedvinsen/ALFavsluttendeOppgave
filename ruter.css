@@ -191,6 +191,140 @@ button{
     border-color: var(--accentMoss);
 }
 
+/*Header detail view*/
+
+.routeCardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding-bottom: 0.75rem;
+}
+
+.routeCardHeader h2 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.routeCardGrade {
+    margin-top: 0.25rem;
+    font-size: 0.95rem;
+    color: var(--accentMoss);
+    font-weight: 600;
+}
+
+/*Body detail view*/
+
+.routeCardBody {
+    display: grid;
+    grid-template-columns: 11fr 12fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.routeCardImageWrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    background: linear-gradient( 135deg, var(--accentSky), var(--accentMoss));
+    min-height: 200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.routeCardImageWrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.routeCardInfo p {
+    margin: 0;
+}
+
+/*Rating*/
+
+.routeCardRating {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.routeCardRating > span {
+    font-size: 0.9rem;
+}
+
+.ratingStars {
+    display: inline-flex;
+    gap: 0.25rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+    background-color: var(--accentSnow);
+}
+
+.ratingStars span {
+    font-size: 1.4rem;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+.ratingStars span.active {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/*comments*/
+
+.routeCardComments {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.routeCardComments label {
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem
+}
+
+textarea.comments {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--accentSnow);
+    background-color: var(--primaryColor);
+    resize: vertical;
+}
+
+.routeCardSaveBtn {
+    align-self: flex-start;
+    padding-inline: 1.1rem;
+    padding-block: 0.45rem;
+    font-size: 0.9rem;
+}
+
+.routeCardPreviousComments {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding-top: 0.6rem;
+    font-size: 0.85rem;
+}
+
+.routeCardPreviousComments .previousComment + .previousComment {
+    margin-top: 0.25rem;
+}
+
+@media (max-width: 800px) {
+    .routeCardBody {
+        grid-template-columns: 1fr;
+    }
+
+    .routeCard {
+        padding: 1.25rem 1.1rem;
+    }
+}
+
 #backBtn{
     margin-bottom: 15px;
 }
