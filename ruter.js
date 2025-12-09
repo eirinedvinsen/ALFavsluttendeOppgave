@@ -1,5 +1,30 @@
-// Henter tidligere lagrede ruter fra localStorage (eller tom liste hvis ingenting lagret)
-let climbedRoutes = JSON.parse(localStorage.getItem("climbedRoutes")) || [];
+// --------- BRUKER / INNLOGGING ---------
+
+// Finn innlogget bruker (hvis noen)
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+const isLoggedIn = !!currentUser;
+
+// Egen nøkkel i localStorage per bruker (uten underscore)
+const storageKeyClimbed = isLoggedIn
+  ? `climbedRoutesFor${currentUser.username}`
+  : null;
+
+const storageKeyUserData = isLoggedIn
+  ? `routeDataFor${currentUser.username}`
+  : null;
+
+// Hvilke ruter denne brukeren har logget
+let climbedRoutes = isLoggedIn
+  ? JSON.parse(localStorage.getItem(storageKeyClimbed)) || []
+  : [];
+
+// Per-bruker data: rating + kommentarer
+let userData = isLoggedIn
+  ? JSON.parse(localStorage.getItem(storageKeyUserData)) || { ratings: {}, comments: {} }
+  : { ratings: {}, comments: {} };
+
+if (!userData.ratings) userData.ratings = {};
+if (!userData.comments) userData.comments = {};
 
 // Disse fylles med data fra ruter.json når loadRouteData() kjører
 let routes = [];
@@ -18,6 +43,7 @@ const commentsInput = document.getElementById("comments");          // textarea
 const ratingStars = document.getElementById("ratingStars");         // stjerner
 const previousCommentsDiv = document.getElementById("previousComments"); // div for gamle kommentarer
 const detailClimbedToggle = document.getElementById("detailClimbedToggle");
+const saveCommentsBtn = document.getElementById("saveCommentsBtn");
 
 const backBtn = document.getElementById("backBtn");
 
@@ -34,7 +60,8 @@ console.log("Init elements:", {
   ratingStars,
   previousCommentsDiv,
   backBtn,
-  detailClimbedToggle
+  detailClimbedToggle,
+  saveCommentsBtn
 });
 
 // --------- HENTE DATA FRA ruter.json ---------
@@ -64,7 +91,58 @@ async function loadRouteData() {
   }
 }
 
-// --------- HJELPEFUNKSJON: INFO-TEKST ---------
+// --------- HJELPEFUNKSJONER (LAGRING / UI) ---------
+
+function saveUserData() {
+  if (!isLoggedIn || !storageKeyUserData) return;
+  localStorage.setItem(storageKeyUserData, JSON.stringify(userData));
+}
+
+// Oppdater stjerne-UI basert på rating for gitt rute
+function updateRatingStarsUI(routeId) {
+  if (!ratingStars) return;
+  const stars = Array.from(ratingStars.querySelectorAll("span"));
+  const currentRating = isLoggedIn ? userData.ratings[routeId] || 0 : 0;
+
+  stars.forEach(star => {
+    const val = parseInt(star.dataset.value, 10);
+    star.classList.toggle("active", val <= currentRating);
+  });
+}
+
+// Tegn kommentarer for en bestemt rute (fra ruter.json + brukerens egne)
+function renderCommentsForRoute(routeId) {
+  if (!previousCommentsDiv) return;
+
+  const routeComments = savedComments.filter(c => c.id === routeId);
+  const userComments = userData.comments[routeId] || [];
+
+  previousCommentsDiv.innerHTML = "";
+
+  if (routeComments.length === 0 && userComments.length === 0) {
+    previousCommentsDiv.textContent = "Ingen kommentarer enda.";
+    return;
+  }
+
+  // Kommentarer fra ruter.json
+  routeComments.forEach(commentObj => {
+    const commentEl = document.createElement("div");
+    commentEl.classList.add("previousComment");
+    const ratingText = commentObj.rating ? ` (${commentObj.rating})` : "";
+    commentEl.textContent = `${commentObj.user}${ratingText}: ${commentObj.comment}`;
+    previousCommentsDiv.appendChild(commentEl);
+  });
+
+  // Brukerens egne kommentarer fra localStorage
+  userComments.forEach(commentObj => {
+    const commentEl = document.createElement("div");
+    commentEl.classList.add("previousComment");
+    const ratingText = commentObj.rating ? ` (${commentObj.rating})` : "";
+    const userLabel = currentUser ? currentUser.username : "Du";
+    commentEl.textContent = `${userLabel}${ratingText}: ${commentObj.text}`;
+    previousCommentsDiv.appendChild(commentEl);
+  });
+}
 
 // Lager en pen tekst ut av info-objektet i ruter.json
 function getRouteInfoText(route) {
@@ -285,9 +363,9 @@ function showDetail(routeId) {
     return;
   }
 
-  // Sync "logget rute"-toggle basert på climbedRoutes
+  // Sync "logget rute"-toggle basert på climbedRoutes (kun for innlogget bruker)
   if (detailClimbedToggle) {
-    detailClimbedToggle.checked = climbedRoutes.includes(routeId);
+    detailClimbedToggle.checked = isLoggedIn && climbedRoutes.includes(routeId);
   }
 
   // Sett inn navn, grad og info
@@ -300,24 +378,23 @@ function showDetail(routeId) {
   // Bruker info-objektet fra ruter.json
   routeInfo.textContent = getRouteInfoText(currentRoute);
 
-  // Tøm textarea hver gang vi åpner detaljvisning
-  commentsInput.value = "";
-
-  // Vis tidligere kommentarer for denne ruten (fra savedComments i ruter.json)
-  const routeComments = savedComments.filter(c => c.id === routeId);
-
-  previousCommentsDiv.innerHTML = ""; // tømmer gammel visning
-
-  if (routeComments.length === 0) {
-    previousCommentsDiv.textContent = "Ingen kommentarer enda.";
-  } else {
-    routeComments.forEach(commentObj => {
-      const commentEl = document.createElement("div");
-      commentEl.classList.add("previous-comment");
-      commentEl.textContent = `${commentObj.user} (${commentObj.rating}): ${commentObj.comment}`;
-      previousCommentsDiv.appendChild(commentEl);
-    });
+  // Kommentarfelt: kun redigerbart for innlogget bruker
+  if (commentsInput) {
+    if (isLoggedIn) {
+      commentsInput.removeAttribute("readonly");
+      commentsInput.placeholder = "Skriv en kommentar...";
+    } else {
+      commentsInput.setAttribute("readonly", "readonly");
+      commentsInput.placeholder = "Logg inn for å skrive kommentar";
+    }
+    commentsInput.value = "";
   }
+
+  // Rating-stjerner for denne ruta
+  updateRatingStarsUI(routeId);
+
+  // Vis kommentarer for denne ruten
+  renderCommentsForRoute(routeId);
 
   if (listView && detailView) {
     listView.style.display = "none";
@@ -327,7 +404,7 @@ function showDetail(routeId) {
   }
 }
 
-// --------- KNAPPER / TOGGLE ---------
+// --------- KNAPPER / TOGGLE / RATING / KOMMENTAR ---------
 
 // Tilbake-knapp: gå tilbake til listevisning
 if (backBtn) {
@@ -341,32 +418,104 @@ if (backBtn) {
 
 // "Logget rute" toggle i detailView
 if (detailClimbedToggle) {
-  detailClimbedToggle.addEventListener("change", (e) => {
-    if (!currentRoute) return;
-    const id = currentRoute.id;
+  if (!isLoggedIn) {
+    // Gjestevisning – kan ikke logge ruter
+    detailClimbedToggle.disabled = true;
+    detailClimbedToggle.title = "Logg inn for å logge ruter";
+  } else {
+    detailClimbedToggle.disabled = false;
+    detailClimbedToggle.title = "";
 
-    if (e.target.checked) {
-      if (!climbedRoutes.includes(id)) {
-        climbedRoutes.push(id);
+    detailClimbedToggle.addEventListener("change", (e) => {
+      if (!currentRoute) return;
+      const id = currentRoute.id;
+
+      if (e.target.checked) {
+        if (!climbedRoutes.includes(id)) {
+          climbedRoutes.push(id);
+        }
+      } else {
+        climbedRoutes = climbedRoutes.filter(routeId => routeId !== id);
       }
-    } else {
-      climbedRoutes = climbedRoutes.filter(routeId => routeId !== id);
-    }
 
-    localStorage.setItem("climbedRoutes", JSON.stringify(climbedRoutes));
-    progressCounter();
+      if (storageKeyClimbed) {
+        localStorage.setItem(storageKeyClimbed, JSON.stringify(climbedRoutes));
+      }
 
-    // Speil endringen i listView
-    const routeDiv = climbingRoutesDiv?.querySelector(`.route[data-id="${id}"]`);
-    if (!routeDiv) return;
+      progressCounter();
 
-    const statusSpan = routeDiv.querySelector(".routeStatus");
-    if (statusSpan) {
-      statusSpan.textContent = e.target.checked ? "✅" : "⬜";
-    }
+      // Speil endringen i listView
+      const routeDiv = climbingRoutesDiv?.querySelector(`.route[data-id="${id}"]`);
+      if (!routeDiv) return;
 
-    routeDiv.classList.toggle("routeClimbed", e.target.checked);
-  });
+      const statusSpan = routeDiv.querySelector(".routeStatus");
+      if (statusSpan) {
+        statusSpan.textContent = e.target.checked ? "✅" : "⬜";
+      }
+
+      routeDiv.classList.toggle("routeClimbed", e.target.checked);
+    });
+  }
+}
+
+// RATING-STJERNER
+if (ratingStars) {
+  const stars = Array.from(ratingStars.querySelectorAll("span"));
+
+  if (!isLoggedIn) {
+    ratingStars.classList.add("rating-disabled");
+    ratingStars.title = "Logg inn for å gi rating";
+  } else {
+    ratingStars.classList.remove("rating-disabled");
+    ratingStars.title = "";
+
+    stars.forEach(star => {
+      star.addEventListener("click", () => {
+        if (!currentRoute) return;
+        const value = parseInt(star.dataset.value, 10);
+        if (isNaN(value)) return;
+
+        const routeId = currentRoute.id;
+        userData.ratings[routeId] = value;
+        saveUserData();
+        updateRatingStarsUI(routeId);
+      });
+    });
+  }
+}
+
+// KOMMENTAR-KNAPP
+if (saveCommentsBtn) {
+  if (!isLoggedIn) {
+    saveCommentsBtn.disabled = true;
+    saveCommentsBtn.title = "Logg inn for å lagre kommentarer";
+  } else {
+    saveCommentsBtn.disabled = false;
+    saveCommentsBtn.title = "";
+
+    saveCommentsBtn.addEventListener("click", () => {
+      if (!currentRoute || !commentsInput) return;
+      const text = commentsInput.value.trim();
+      if (!text) return;
+
+      const routeId = currentRoute.id;
+      if (!userData.comments[routeId]) {
+        userData.comments[routeId] = [];
+      }
+
+      const ratingForRoute = userData.ratings[routeId] || null;
+
+      userData.comments[routeId].push({
+        text,
+        date: new Date().toISOString(),
+        rating: ratingForRoute,
+      });
+
+      saveUserData();
+      commentsInput.value = "";
+      renderCommentsForRoute(routeId);
+    });
+  }
 }
 
 // --------- PROGRESJONSTELLER ---------
@@ -375,6 +524,11 @@ function progressCounter() {
   const progressText = document.getElementById("progressText");
   if (!progressText) {
     console.warn("Finner ikke #progressText i HTML.");
+    return;
+  }
+
+  if (!isLoggedIn) {
+    progressText.textContent = "Logg inn for å lagre hvilke ruter du har klatret.";
     return;
   }
 
