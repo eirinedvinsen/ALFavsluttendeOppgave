@@ -6,7 +6,7 @@
     <title>LogIn</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="innlogging.css">
-    <script src="innlogging.js"></script>
+    <script src="innlogging.js" defer></script>
 </head>
 <body>
     <!-- denne siden skal ta deg til rutedatabasen, automatisk ved innlogging, innlogging er ikke satt opp enda derfor ligger ikke denne som index -->
@@ -22,7 +22,8 @@
             <input type="password" id="password">
         </div>
         <div class="submit">
-            <input type="button" value="Log In" onClick="location.href='ruter.html';">
+            <input type="button" value="Log In" id="loginBtn">
+            <p id="loginError" class="loginError"></p>
             <a href="">Glemt Passord?</a>
         </div>
     </section>

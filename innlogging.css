@@ -99,4 +99,11 @@ loginStyle label{
   color: var(--accentRope);
 }
 
+.loginError {
+  margin-top: 0.75rem;
+  color: #ffb3b3;
+  font-size: 0.85rem;
+  min-height: 1em;
+}
+
 
