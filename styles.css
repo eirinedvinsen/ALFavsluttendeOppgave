@@ -292,7 +292,30 @@ section p {
 }
 
 /* Responsivt */
-@media (max-width: 800px) {
+@media (max-width: 769px) {
+
+  .header {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .headerLogo {
+    justify-content: space-between;
+  }
+
+  .navThemeToggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .navList {
+    width: 100%;
+    justify-content: flex-start;
+    row-gap: 0.5rem;
+  }
+  
   .contentGrid {
     grid-template-columns: 1fr;
   }
