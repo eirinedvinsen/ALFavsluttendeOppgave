@@ -50,10 +50,12 @@ body.darkMode{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: 1rem 2rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   margin: 1rem 0; 
+  background-color: var(--accentChalk);
 }
 
 .headerLogo{
@@ -65,7 +67,8 @@ body.darkMode{
 .headerImg{
   /* background-color: var(--accentMoss); */
   height: 50px;
-  /* width: auto; */
+  /*width: auto;*/
+  padding: 0.25rem 0.6rem;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
   background-color: var(--accentChalk);
@@ -103,6 +106,7 @@ body.darkMode{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 /* nav */
 
@@ -242,6 +246,23 @@ main section:hover {
 .imagePlaceholder.large {
   min-height: 400px;
   border-radius: 12px 12px 0 0;
+}
+
+.sectionOne{ 
+  padding: 2rem 1.5rem 3rem;
+}
+
+/*Parallax*/
+
+.sectionOne .imagePlaceholder.large {
+  min-height: 320px;
+  border-radius: 12px;
+  background-image: url(helleneset.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-attachment: fixed;
+  will-change: background-position;
 }
 
 .imagePlaceholder:hover {
