@@ -239,7 +239,7 @@ main section:hover {
   border-radius: 8px;
   box-shadow: inset 0 0 50px rgba(255,255,255,0.3);
   min-height: 250px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
   grid-area: image;
 }
 
@@ -266,7 +266,6 @@ main section:hover {
 }
 
 .imagePlaceholder:hover {
-  transform: scale(1.02);
   box-shadow: inset 0 0 40px rgba(0,0,0,0.2);
 }
 
